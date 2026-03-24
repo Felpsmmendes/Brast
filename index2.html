@@ -10,185 +10,174 @@
     <link rel="stylesheet" href="css/index2.css">
 
 </head>
-<body>
-    
+<body> 
  
-<nav class="navbar navbar-expand-lg fixed-top navbar-custom" >
-    <div class="container-fluid">
-        <!-- Logo -->
-        <a class="navbar-brand" href="index.html">
-            <img src="https://static.vecteezy.com/system/resources/previews/027/127/558/large_2x/brawl-stars-logo-brawl-stars-icon-transparent-free-png.png" class="tamanhoimagem" alt="Logo">
-        </a>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+		<div class="container-fluid">
+			<!-- Logo -->
+			<a class="navbar-brand" href="index.html">
+				<img src="https://static.vecteezy.com/system/resources/previews/027/127/558/large_2x/brawl-stars-logo-brawl-stars-icon-transparent-free-png.png" class="tamanhoimagem" alt="Logo">
+			</a>
 
-        <!-- Texto Centralizado "Brast" -->
-        <span class="navbar-text mx-auto d-none d-lg-block" >
-            Brast
-        </span>
+			<!-- Texto Centralizado "Brast" -->
+			<span class="navbar-text mx-auto d-none d-lg-block" >
+				Brast
+			</span>
 
-        <!-- Botão Toggler -->
-        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-        </button>
+			<!-- Botão Toggler -->
+			<button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+				<span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+			</button>
 
-        <!-- Menu colapsável -->
-        <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
+			<!-- Menu colapsável -->
+			<div class="collapse navbar-collapse" id="navbarContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<!-- Home -->
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Home</a>
+					</li>
 
-                <!-- Submenu Visuais -->
-                <li class="nav-item dropdown">
-                    <button class="nav-link btn btn-link dropdown-toggle" id="visuaisButton">Visuais
-                        <i class="fas fa-chevron-down"></i> <!-- Ícone de seta -->
-                    </button>
-                    <ul class="dropdown-menu dropdown-horizontal" id="visuaisMenu">
-                    	<li><a class="dropdown-item" href="index2.html#BrawlerDoDia">Brawler do dia</a></li>
-                        <li>
-                            <button class="dropdown-item dropdown-toggle" id="raridadeButton">Raridade
-                                
-                            </button>
-                            <ul class="dropdown-menu dropdown-horizontal" id="raridadeMenu">
-                                <li><a class="dropdown-item" href="index2.html#Raro">Raro</a></li>
-                                <li><a class="dropdown-item" href="index2.html#Super-Raro">Super-Raro</a></li>
-                                <li><a class="dropdown-item" href="index2.html#Epico">Epico</a></li>
-                                <li><a class="dropdown-item" href="index2.html#Mitico">Mitico</a></li>
-                                <li><a class="dropdown-item" href="index2.html#Lendario">Lendario</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="dropdown-item" href="index2.html#Comparação de Brawlers">Comparação de Brawlers</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Recursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Recursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Recursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Recursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Recursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Recursos</a>
-                </li>
-              
-            </ul>
-        </div>
-    </div>
-</nav>
+					<!-- Visuais -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+							Visuais
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="index2.html#BrawlerDoDia">Brawler do dia</a></li>
 
+							<li class="dropdown-submenu">
+								<a class="dropdown-item dropdown-toggle" href="#">Raridade</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="index2.html#Raro">Raro</a></li>
+									<li><a class="dropdown-item" href="index2.html#Super-Raro">Super-Raro</a></li>
+									<li><a class="dropdown-item" href="index2.html#Epico">Epico</a></li>
+									<li><a class="dropdown-item" href="index2.html#Mitico">Mitico</a></li>
+									<li><a class="dropdown-item" href="index2.html#Lendario">Lendario</a></li>
+								</ul>
+							</li>
 
+							<li><a class="dropdown-item" href="index2.html#Comparacao">Comparação de Brawlers</a></li>
+						</ul>
+					</li>
 
+					<!-- Brawlers -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+							Brawlers
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Todos</a></li>
+							<li><a class="dropdown-item" href="#">Mais fortes</a></li>
+							<li><a class="dropdown-item" href="#">Mais fracos</a></li>
+						</ul>
+					</li>
 
+					<!-- Mapas -->
+					<li class="nav-item">
+						<a class="nav-link" href="#">Mapas</a>
+					</li>
 
+					<!-- Modos -->
+					<li class="nav-item">
+						<a class="nav-link" href="#">Modos</a>
+					</li>
 
+					<!-- Tier List -->
+					<li class="nav-item">
+						<a class="nav-link" href="#">Tier List</a>
+					</li>
 
+					<!-- Sobre -->
+					<li class="nav-item">
+						<a class="nav-link" href="#">Sobre</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-
-
-
-<div  id="BrawlerDoDia"></div>
-
-
-
-
-	<div style="margin-top: 10%;"></div>
+	<div id="BrawlerDoDia"></div>
 
 	<div class="container my-5">
-  <!-- Título -->
-  <h2 class="text-center mb-4">Brawler do Dia</h2>
+		<!-- Título -->
+		<h2 class="text-center mb-4">Brawler do Dia</h2>
+		<!-- Card do Brawler do Dia -->
+		<div id="brawlerOfTheDay" class="card shadow-lg border-0">
+			<div class="row g-0">
+				<div class="col-md-4">
+					<img id="brawlerImage" src="img/CorvoDia.png" class="img-fluid rounded-start" alt="Brawler do Dia">
+				</div>
+				<div class="col-md-8">
+					<div class="card-body d-flex flex-column justify-content-between" style="line-height: 1.5;">
+						<!-- Título centralizado -->
+						<br><br><h5 id="brawlerName" class="card-title text-center text-primary">Corvo</h5>
 
-  <!-- Card do Brawler do Dia -->
-  <div id="brawlerOfTheDay" class="card shadow-lg border-0">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img id="brawlerImage" src="img/CorvoDia.png" class="img-fluid rounded-start" alt="Brawler do Dia">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body d-flex flex-column justify-content-between" style="line-height: 1.5;">
-          <!-- Título centralizado -->
-          <br><br><h5 id="brawlerName" class="card-title text-center text-primary">Corvo</h5>
+						<!-- Descrição do Brawler -->
+						<div class="text-center">
+							<p id="brawlerDescription" class="card-text text-secondary">
+							Corvo é um brawler lendário especializado em causar dano gradual com seu veneno mortal. Seus ataques reduzem a vida dos oponentes lentamente, permitindo que ele mantenha pressão constante enquanto se mantém seguro à distância. Corvo é ágil e difícil de capturar, o que o torna um adversário frustrante.
+							</p>
+							<p>
+							Com seu super, ele salta rapidamente e causa dano em área, ideal para surpreender inimigos ou escapar de situações complicadas. O super também permite reposicionamento estratégico, essencial para controlar o campo de batalha e pegar oponentes desprevenidos.
+							</p>
+						</div>
 
-          <!-- Descrição do Brawler -->
-          <div class="text-center">
-            <p id="brawlerDescription" class="card-text text-secondary">
-              Corvo é um brawler lendário especializado em causar dano gradual com seu veneno mortal. Seus ataques reduzem a vida dos oponentes lentamente, permitindo que ele mantenha pressão constante enquanto se mantém seguro à distância. Corvo é ágil e difícil de capturar, o que o torna um adversário frustrante.
-            </p>
-            <p>
-              Com seu super, ele salta rapidamente e causa dano em área, ideal para surpreender inimigos ou escapar de situações complicadas. O super também permite reposicionamento estratégico, essencial para controlar o campo de batalha e pegar oponentes desprevenidos.
-            </p>
-          </div>
+						<!-- Explicação do Brawler do Dia -->
+						<div class="text-center mt-3">
+							<h6>O que é o Brawler do Dia?</h6>
+							<p>
+							O <strong>Brawler do Dia</strong> é uma seção especial do nosso site, onde escolhemos um brawler e oferecemos uma análise completa sobre suas habilidades, pontos fortes e fracos. Nosso objetivo é ajudar você a entender melhor o brawler e usá-lo com eficiência nas partidas.
+							</p>
+							<p>
+							Hoje, destacamos o Corvo, um brawler que se destaca por sua velocidade e ataques envenenados. Assista ao tutorial abaixo para aprender táticas avançadas e dominar o uso deste brawler em diferentes modos de jogo, maximizando seu potencial.
+							</p>
+						</div>
 
-          <!-- Explicação do Brawler do Dia -->
-          <div class="text-center mt-3">
-            <h6>O que é o Brawler do Dia?</h6>
-            <p>
-              O <strong>Brawler do Dia</strong> é uma seção especial do nosso site, onde escolhemos um brawler e oferecemos uma análise completa sobre suas habilidades, pontos fortes e fracos. Nosso objetivo é ajudar você a entender melhor o brawler e usá-lo com eficiência nas partidas.
-            </p>
-            <p>
-              Hoje, destacamos o Corvo, um brawler que se destaca por sua velocidade e ataques envenenados. Assista ao tutorial abaixo para aprender táticas avançadas e dominar o uso deste brawler em diferentes modos de jogo, maximizando seu potencial.
-            </p>
-          </div>
+						<!-- Botão centralizado -->
+						<div class="text-center mt-3">
+							<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#animationModal">
+							Ver Tutorial
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-          <!-- Botão centralizado -->
-          <div class="text-center mt-3">
-            <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#animationModal">
-              Ver Tutorial
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal para Animação do Brawler do Dia -->
-  <div class="modal fade" id="animationModal" tabindex="-1" aria-labelledby="animationModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content bg-dark text-light">
-        <div class="modal-header">
-          <h5 class="modal-title" id="animationModalLabel">Tutorial de como jogar com Corvo</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <video id="animationVideo" class="w-100" controls>
-            <source src="img/Brawlerdia.mp4" type="video/mp4">
-            Seu navegador não suporta o vídeo.
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
+			<!-- Modal para Animação do Brawler do Dia -->
+			<div class="modal fade" id="animationModal" tabindex="-1" aria-labelledby="animationModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content bg-dark text-light">
+						<div class="modal-header">
+						<h5 class="modal-title" id="animationModalLabel">Tutorial de como jogar com Corvo</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<video id="animationVideo" class="w-100" controls>
+								<source src="img/Brawlerdia.mp4" type="video/mp4">
+								Seu navegador não suporta o vídeo.
+							</video>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	<div style="margin-top: 5%;"></div>
 
-	
-    
     <!-- Continue com outras raridades, seguindo o mesmo estilo -->
 
 
-  <div style="margin-top: 5%;"></div>  
+	<div style="margin-top: 5%;"></div>  
 
-  <center><h1>Raro</h1></center>
+	<div><h1>Raro</h1></div>
 
 	<div id="Raro"></div>
 
 	<div style="margin-top: 3%;"></div>
 
 	<section class="container-fluid text-center caixa ">
-		<div style="background-color: ;  ">
+		<div>
 			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 m-auto " style="width: 95%; padding-left: 16.2%; padding-right: 15%;" >
 			
 			  	<div class="col">
@@ -588,7 +577,7 @@
 	
 	<div style="margin-top: 5%;"></div>
 
-	<center><h1>Super-Raro</h1></center>
+	<div><h1>Super-Raro</h1></div>
 
 	<br id="Super-Raro">
 
@@ -994,7 +983,7 @@
 
 	<div style="margin-top: 5%;"></div>
 
-	<center><h1>Epico</h1></center>
+	<div><h1>Epico</h1></div>
 
 	<br id="Epico">
 
@@ -1401,7 +1390,7 @@
 
 	<div style="margin-top: 5%;"></div>
 
-	<center><h1>Mitico</h1></center>
+	<div><h1>Mitico</h1></div>
 
 	<br id="Mitico">
 
@@ -1807,7 +1796,7 @@
 
 	<div style="margin-top: 5%;"></div>
 
-	<center><h1>Lendario</h1></center>
+	<div><h1>Lendario</h1></div>
 
 	<br id="Lendario">
 
