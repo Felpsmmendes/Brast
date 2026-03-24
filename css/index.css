@@ -1,0 +1,215 @@
+		body{
+     background-color: #BBDEFB; /* Fundo azul marinho */
+    color: #333333; /* Texto em branco para contraste */
+    font-family: 'Bangers', sans-serif;
+}
+
+.size{
+    font-size: 20;
+}
+
+ ul li{
+    font-size: large;
+}
+
+
+		/* Navbar customizada */
+.navbar-custom {
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.navbar-custom.scrolled {
+    background-color: #64B5F6 !important;
+}
+
+/* Estilo da imagem do logo */
+.tamanhoimagem {
+    width: 70px;
+    height: 70px;
+}
+
+/* Estilo dos botões para evitar fundo branco */
+button {
+    background-color: #64B5F6;
+    color: #FFFFFF;
+    border: none;
+    outline: none;  /* Remove o contorno após o clique */
+}
+
+/* Ocultar submenus inicialmente */
+.dropdown-menu {
+    display: none;
+    background-color: #64B5F6;
+    border-radius: 0.5rem;
+}
+
+/* Mostrar submenus ao clicar */
+.dropdown-menu.show {
+    display: flex;
+}
+
+/* Horizontalidade */
+.dropdown-horizontal {
+    flex-direction: row;
+}
+
+/* Estilo dos links */
+.nav-link {
+    color: #FFFFFF !important;
+}
+
+.nav-link:hover {
+    color: #555 !important;
+}
+
+/* Evitar que o botão fique na cor de hover após clicar */
+button:focus,
+button:active {
+    background-color: #64B5F6; /* Mantém a cor original */
+    color: #FFFFFF;
+}
+
+/* Estilo para hover e clique nos botões */
+button:hover,
+button:focus-visible {
+    background-color: #64B5F6;
+    color: #FFFFFF;
+}
+
+/* Itens do submenu */
+.dropdown-item {
+    color: #FFFFFF;
+}
+
+/* Hover e Foco para itens do submenu */
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #64B5F6;
+    color: #555;
+}
+
+button i {
+    transition: transform 0.3s ease;
+}
+
+.fundo_{
+	background-color: #64B5F6;
+	color: #FFFFFF;
+}
+
+.section-header {
+        font-size: 2rem;
+        color: #333;
+        font-weight: bold;
+        margin-top: 50px;
+    }
+
+    .section-content p {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.6;
+        margin-top: 20px;
+    }
+
+    .mode-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .mode-card:hover {
+        transform: scale(1.05); /* Expande o card ao passar o mouse */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .mode-card img {
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .card-body h5 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .card-body p {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        font-weight: 300;
+        color: #444;
+    }
+
+.navbar-custom {
+            background-color: transparent;
+            transition: background-color 0.3s;
+        }
+
+        .navbar-custom.scrolled {
+            background-color: #64B5F6 !important;
+        }
+
+        .tamanhoimagem {
+            width: 70px;
+            height: 70px;
+        }
+
+        .card-custom {
+            margin-bottom: 20px;
+            border-radius: 0.5rem;
+        }
+
+        .card-header-custom {
+            background-color: #64B5F6;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .card-body-custom {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .timeline-card {
+            margin-top: 30px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-card .timeline-heading {
+            background-color: #FFEB3B;
+            color: #333;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .timeline-card .timeline-body {
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .modal-content {
+            background-color: #BBDEFB;
+        }
+
+
+
+
+
+        
+
+      

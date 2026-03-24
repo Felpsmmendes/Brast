@@ -1,0 +1,124 @@
+body{
+     background-color: #BBDEFB; /* Fundo azul marinho */
+    color: #333333; /* Texto em branco para contraste */
+    font-family: 'Bangers', sans-serif;
+}
+
+
+
+
+
+.size{
+    font-size: 20;
+}
+
+ ul li{
+    font-size: large;
+}
+
+
+        /* Navbar customizada */
+.navbar-custom {
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.navbar-custom.scrolled {
+    background-color: #64B5F6 !important;
+}
+
+/* Estilo da imagem do logo */
+.tamanhoimagem {
+    width: 70px;
+    height: 70px;
+}
+
+/* Estilo dos botões para evitar fundo branco */
+button {
+    background-color: #64B5F6;
+    color: #FFFFFF;
+    border: none;
+    outline: none;  /* Remove o contorno após o clique */
+}
+
+/* Ocultar submenus inicialmente */
+.dropdown-menu {
+    display: none;
+    background-color: #64B5F6;
+    border-radius: 0.5rem;
+}
+
+/* Mostrar submenus ao clicar */
+.dropdown-menu.show {
+    display: flex;
+}
+
+/* Horizontalidade */
+.dropdown-horizontal {
+    flex-direction: row;
+}
+
+/* Estilo dos links */
+.nav-link {
+    color: #FFFFFF !important;
+}
+
+.nav-link:hover {
+    color: #555 !important;
+}
+
+/* Evitar que o botão fique na cor de hover após clicar */
+button:focus,
+button:active {
+    background-color: #64B5F6; /* Mantém a cor original */
+    color: #FFFFFF;
+}
+
+/* Estilo para hover e clique nos botões */
+button:hover,
+button:focus-visible {
+    background-color: #64B5F6;
+    color: #FFFFFF;
+}
+
+/* Itens do submenu */
+.dropdown-item {
+    color: #FFFFFF;
+}
+
+/* Hover e Foco para itens do submenu */
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #64B5F6;
+    color: #555;
+}
+
+button i {
+    transition: transform 0.3s ease;
+}
+
+/* Quando o submenu de "Raridade" estiver visível, gire a seta */
+#raridadeMenu.show i {
+    transform: rotate(180deg); /* Gira a seta */
+}
+
+.dropdown-submenu {
+      position: relative;
+    }
+
+    .dropdown-submenu .dropdown-menu {
+      top: 0;
+      left: 100%;
+      margin-top: -5px;
+      margin-left: 0;
+    }
+
+    /* Exibir o submenu ao passar o mouse */
+    .dropdown-submenu:hover > .dropdown-menu {
+      display: block;
+    }
+
+.Godzilla {
+    border: 4px solid #555; /* Borda verde mais grossa */
+    box-shadow: 0px 0px 10px #333; /* Efeito de brilho */
+}
