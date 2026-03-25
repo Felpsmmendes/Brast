@@ -7,94 +7,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 	<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index2.css">
-
+    
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/cards.css">
+	<link rel="stylesheet" href="css/darkmode.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body> 
  
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-		<div class="container-fluid">
-			<!-- Logo -->
-			<a class="navbar-brand" href="index.html">
-				<img src="https://static.vecteezy.com/system/resources/previews/027/127/558/large_2x/brawl-stars-logo-brawl-stars-icon-transparent-free-png.png" class="tamanhoimagem" alt="Logo">
-			</a>
+	<?php include 'includes/navbar.php'; ?>
 
-			<!-- Texto Centralizado "Brast" -->
-			<span class="navbar-text mx-auto d-none d-lg-block" >
-				Brast
-			</span>
-
-			<!-- Botão Toggler -->
-			<button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-				<span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-			</button>
-
-			<!-- Menu colapsável -->
-			<div class="collapse navbar-collapse" id="navbarContent">
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-					<!-- Home -->
-					<li class="nav-item">
-						<a class="nav-link" href="index.html">Home</a>
-					</li>
-
-					<!-- Visuais -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-							Visuais
-						</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="index2.html#BrawlerDoDia">Brawler do dia</a></li>
-
-							<li class="dropdown-submenu">
-								<a class="dropdown-item dropdown-toggle" href="#">Raridade</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="index2.html#Raro">Raro</a></li>
-									<li><a class="dropdown-item" href="index2.html#Super-Raro">Super-Raro</a></li>
-									<li><a class="dropdown-item" href="index2.html#Epico">Epico</a></li>
-									<li><a class="dropdown-item" href="index2.html#Mitico">Mitico</a></li>
-									<li><a class="dropdown-item" href="index2.html#Lendario">Lendario</a></li>
-								</ul>
-							</li>
-
-							<li><a class="dropdown-item" href="index2.html#Comparacao">Comparação de Brawlers</a></li>
-						</ul>
-					</li>
-
-					<!-- Brawlers -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-							Brawlers
-						</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Todos</a></li>
-							<li><a class="dropdown-item" href="#">Mais fortes</a></li>
-							<li><a class="dropdown-item" href="#">Mais fracos</a></li>
-						</ul>
-					</li>
-
-					<!-- Mapas -->
-					<li class="nav-item">
-						<a class="nav-link" href="#">Mapas</a>
-					</li>
-
-					<!-- Modos -->
-					<li class="nav-item">
-						<a class="nav-link" href="#">Modos</a>
-					</li>
-
-					<!-- Tier List -->
-					<li class="nav-item">
-						<a class="nav-link" href="#">Tier List</a>
-					</li>
-
-					<!-- Sobre -->
-					<li class="nav-item">
-						<a class="nav-link" href="#">Sobre</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<?php
+include 'database/conexao.php';
+$sql = "SELECT * FROM brawlers ORDER BY raridade, nome";
+$result = mysqli_query($conexao, $sql);
+if (!$result) {
+    die("Erro na query: " . mysqli_error($conexao));
+}
+?>
 
 	<div id="BrawlerDoDia"></div>
 
@@ -153,10 +85,9 @@
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<video id="animationVideo" class="w-100" controls>
-								<source src="img/Brawlerdia.mp4" type="video/mp4">
-								Seu navegador não suporta o vídeo.
-							</video>
+							<div class="ratio ratio-16x9">
+								<iframe src="https://www.youtube.com/embed/i-4R28cnOiU?start=3" title="Tutorial Corvo" allowfullscreen></iframe>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -164,6 +95,8 @@
 		</div>
 
 	<div style="margin-top: 5%;"></div>
+
+	
 
     <!-- Continue com outras raridades, seguindo o mesmo estilo -->
 
@@ -180,398 +113,273 @@
 		<div>
 			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 m-auto " style="width: 95%; padding-left: 16.2%; padding-right: 15%;" >
 			
+			<?php
+			// Filtrar Raro do banco, se existir; caso contrário, mostrar cards de exemplo
+			$sql_raro = "SELECT * FROM brawlers WHERE raridade = 'Raro' ORDER BY nome";
+			$result_raro = mysqli_query($conexao, $sql_raro);
+			$has_raro = $result_raro && mysqli_num_rows($result_raro) > 0;
+			?>
+
+			<?php if ($has_raro): ?>
+				<?php while ($b = mysqli_fetch_assoc($result_raro)): ?>
+					<div class="col">
+						<div class="card raro" style="width: 16em;">
+							<div class="card-body">
+								<h5 class="card-title"><?= htmlspecialchars($b['nome']) ?></h5>
+								<p class="card-text"><?= htmlspecialchars($b['raridade']) ?></p>
+							</div>
+							<a href="brawler.php?id=<?= $b['id'] ?>" target="_blank">
+								<img src="<?= htmlspecialchars($b['imagem']) ?>" class="card-img-top img" alt="<?= htmlspecialchars($b['nome']) ?>" style="object-fit: cover; height: 155px;">
+							</a>
+							<div class="accordion" id="accordion-<?= strtolower($b['nome']) ?>">
+								<div class="accordion-item">
+									<h2 class="accordion-header">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<?= strtolower($b['nome']) ?>" aria-expanded="false" aria-controls="collapse-<?= strtolower($b['nome']) ?>">
+											Ver Descrição
+										</button>
+									</h2>
+									<div id="collapse-<?= strtolower($b['nome']) ?>" class="accordion-collapse collapse" data-bs-parent="#accordion-<?= strtolower($b['nome']) ?>">
+										<div class="accordion-body">
+											<p><?= htmlspecialchars($b['descricao'] ?? 'Descrição não disponível.') ?></p>
+											<a href="brawler.php?id=<?= $b['id'] ?>" class="btn btn-primary">Ver Mais</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php endwhile; ?>
+			<?php else: ?>
+				<!-- Cards de exemplo enquanto o banco não está populado -->
 			  	<div class="col">
-			    	<div class="card raro" style="width: 16em;" >
-			      		<div class="card-body">
-				        <h5 class="card-title">Nita</h5>
-				        <p class="card-text">Destruidor</p>
-				      	</div>
-			      		<img src="img/Nita.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalNita">
-
-			      		<!-- Modal Brock -->
-			      		<div class="modal fade" id="modalNita" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalNitaLabel" aria-hidden="true">
-			      			<!-- Modal com tamanho médio -->
-				      <div class="modal-dialog">
-				        <div class="modal-content">
-				          <div class="modal-header">
-				            <h1 class="modal-title fs-5" id="staticBackdropLabel">Nita- Animação de Vitória</h1>
-				            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				          </div>
-				          <div class="modal-body">
-				            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-				            <video autoplay muted loop class="img-fluid">
-				              <source src="img/Nita_.mp4" type="video/mp4">
-				              Seu navegador não suporta o vídeo.
-				            </video>
-				          </div>
-				          <div class="modal-footer">
-				            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-				            
-				          </div>
-				        </div>
-				      </div>
-				    </div>
-			      		<div class="accordion" id="accordionExample">
-						  	<div class="accordion-item">
-						    	<h2 class="accordion-header">
-						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-						       	 		Veja mais
-						      		</button>
-						    	</h2>
-						    	<div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-						      		<div class="accordion-body">
-						        		Nita é feroz e nunca desiste de uma luta. O urso de pelúcia que ela usa como gorro dá um dica aos adversários: não se aproxime do urso!
-						      		</div>
-						    	</div>
-						  	</div>
-						</div>
-			    	</div>
-			  	</div>
-
-			  	<div class="col" id="Raro">
-			    	<div class="card raro" style="width: 16em;" >
-			      		<div class="card-body">
-				        <h5 class="card-title">Brock</h5>
-				        <p class="card-text">Tiro Preciso</p>
-				      	</div>
-			      		<img src="img/Brock.png" class="card-img-top img" alt="..." id="2B" data-bs-toggle="modal" data-bs-target="#modalBrock">
-
-			      		<!-- Modal Brock -->
-					    <div class="modal fade" id="modalBrock" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalBrockLabel" aria-hidden="true">
-					      	<!-- Modal com tamanho médio -->
-					      	<div class="modal-dialog modal-md">
-					        	<div class="modal-content">
-					          		<div class="modal-header">
-					            		<h1 class="modal-title fs-5" id="modalBrockLabel">Brock - Animação de Vitória</h1>
-					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					          		</div>
-					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Brock_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
-					          		</div>
-						          	<div class="modal-footer">
-							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-						          	</div>
-					        	</div>
-					      	</div>
-					    </div>
-
-					     <!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
-						  	<div class="accordion-item">
-						    	<h2 class="accordion-header">
-						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-						        		Veja mais
-						      		</button>
-						    	</h2>
-						    	<div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-						      		<div class="accordion-body">
-						        		Quem vê o Brock todo estilosão gritando ao jogar videogame(seu hobby preferido) nao acredita que o cara é introvertido. É melhor não dar mole, pois ele vai fazer tudo para ganhar!
-						      		</div>
-						    	</div>
-						  	</div>
-						</div>
+			    	<div class="card raro" style="width: 100%;">
+			    		<div class="card-body">
+			    			<h5 class="card-title">Nita</h5>
+			    			<p class="card-text">Destruidor</p>
+			    		</div>
+			    		<img src="imagem" class="card-img-top" data-bs-toggle="modal" data-bs-target="#modalNome">
+			    		<div class="accordion" id="accordion-nita">
+			    			<div class="accordion-item">
+			    				<h2 class="accordion-header">
+			    					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-nita" aria-expanded="false" aria-controls="collapse-nita">
+			    						Ver Descrição
+			    					</button>
+			    				</h2>
+			    				<div id="collapse-nita" class="accordion-collapse collapse" data-bs-parent="#accordion-nita">
+			    					<div class="accordion-body">
+			    						<p>Nita é feroz e nunca desiste de uma luta. O urso de pelúcia que ela usa como gorro dá uma dica aos adversários: não se aproxime do urso!</p>
+			    						<a href="brawler.php?id=1" class="btn btn-primary">Ver Mais</a>
+			    					</div>
+			    				</div>
+			    			</div>
+			    		</div>
 			    	</div>
 			  	</div>
 
 			  	<div class="col">
-			    	<div class="card raro" style="width: 16em;" >
-			      		<div class="card-body">
-				        <h5 class="card-title">Colt</h5>
-				        <p class="card-text">Destruidor</p>
-				      	</div>
-			      		<img src="img/Colt.png" class="card-img-top img" alt="..." id="2B" data-bs-toggle="modal" data-bs-target="#modalColt">
-
-			      		<!-- Modal Colt -->
-					    <div class="modal fade" id="modalColt" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalColtLabel" aria-hidden="true">
-					      	<!-- Modal com tamanho médio -->
-					      	<div class="modal-dialog modal-md">
-					        	<div class="modal-content">
-					          		<div class="modal-header">
-					            		<h1 class="modal-title fs-5" id="modalColtLabel">Colt - Animação de Vitória</h1>
-					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					          		</div>
-					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Colt_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
-					          		</div>
-						          	<div class="modal-footer">
-							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-						          	</div>
-					        	</div>
-					      	</div>
-					    </div>
-
-					    <!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
-						  	<div class="accordion-item">
-						    	<h2 class="accordion-header">
-						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-						        		Veja mais
-						      		</button>
-						    	</h2>
-						    	<div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-						      		<div class="accordion-body">
-						        	Todo mundo que visita o Starr Park quer ver o colt de perto, pois o cara é boa-pinta, carismático e cheio de truques com suas pistolas. A única que nao entende o sucesso dele é a Shelly.
-						      		</div>
-						    	</div>
-						  	</div>
-						</div>
+			    	<div class="card raro" style="width: 100%;">
+			    		<div class="card-body">
+			    			<h5 class="card-title">Brock</h5>
+			    			<p class="card-text">Destruidor</p>
+			    		</div>
+			    		<img src="imagem" class="card-img-top" data-bs-toggle="modal" data-bs-target="#modalNome">
+			    		<div class="accordion" id="accordion-brock">
+			    			<div class="accordion-item">
+			    				<h2 class="accordion-header">
+			    					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-brock" aria-expanded="false" aria-controls="collapse-brock">
+			    						Ver Descrição
+			    					</button>
+			    				</h2>
+			    				<div id="collapse-brock" class="accordion-collapse collapse" data-bs-parent="#accordion-brock">
+			    					<div class="accordion-body">
+			    						<p>Quem vê o Brock todo estilosão gritando ao jogar videogame (seu hobby preferido) não acredita que o cara é introvertido. É melhor não dar mole, pois ele vai fazer tudo para ganhar!</p>
+			    						<a href="brawler.php?id=2" class="btn btn-primary">Ver Mais</a>
+			    					</div>
+			    				</div>
+			    			</div>
+			    		</div>
 			    	</div>
 			  	</div>
 
 			  	<div class="col">
-			    	<div class="card raro" style="width: 16em;" >
-			      		<div class="card-body">
-				        <h5 class="card-title">Bull</h5>
-				        <p class="card-text">Tanque</p>
-				      	</div>
-			      		<img src="img/Bull.png" class="card-img-top img" alt="..." id="2B" data-bs-toggle="modal" data-bs-target="#modalBull">
+			    	<div class="card raro" style="width: 100%;">
+			    		<div class="card-body">
+			    			<h5 class="card-title">Colt</h5>
+			    			<p class="card-text">Destruidor</p>
+			    		</div>
+			    		<img src="imagem" class="card-img-top" data-bs-toggle="modal" data-bs-target="#modalNome">
+			    		<div class="accordion" id="accordion-colt">
+			    			<div class="accordion-item">
+			    				<h2 class="accordion-header">
+			    					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-colt" aria-expanded="false" aria-controls="collapse-colt">
+			    						Ver Descrição
+			    					</button>
+			    				</h2>
+			    				<div id="collapse-colt" class="accordion-collapse collapse" data-bs-parent="#accordion-colt">
+			    					<div class="accordion-body">
+			    						<p>Todo mundo que visita o Starr Park quer ver o Colt de perto, pois o cara é boa-pinta, carismático e cheio de truques com suas pistolas. A única que não entende o sucesso dele é a Shelly.</p>
+			    						<a href="brawler.php?id=3" class="btn btn-primary">Ver Mais</a>
+			    					</div>
+			    				</div>
+			    			</div>
+			    	</div>
+			  	</div>
 
-			      		<!-- Modal Bull -->
-					    <div class="modal fade" id="modalBull" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalBullLabel" aria-hidden="true">
-					      	<!-- Modal com tamanho médio -->
-					      	<div class="modal-dialog modal-md">
-					        	<div class="modal-content">
-					          		<div class="modal-header">
-					            		<h1 class="modal-title fs-5" id="modalBullLabel">Bull - Animação de Vitória</h1>
-					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					          		</div>
-					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Bull_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
-					          		</div>
-						          	<div class="modal-footer">
-							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-						          	</div>
-					        	</div>
-					      	</div>
-					    </div>
+			  	<div class="col">
+			    	<div class="card raro" style="width: 100%;">
+			    		<div class="card-body">
+			    			<h5 class="card-title">Bull</h5>
+			    			<p class="card-text">Tanque</p>
+			    		</div>
+			    		<img src="imagem" class="card-img-top" data-bs-toggle="modal" data-bs-target="#modalNome">
+			    		<div class="accordion" id="accordion-bull">
+			    			<div class="accordion-item">
+			    				<h2 class="accordion-header">
+			    					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-bull" aria-expanded="false" aria-controls="collapse-bull">
+			    						Ver Descrição
+			    					</button>
+			    				</h2>
+			    				<div id="collapse-bull" class="accordion-collapse collapse" data-bs-parent="#accordion-bull">
+			    					<div class="accordion-body">
+			    						<p>Como todo milenial, Bull já não é o touro selvagem de antes, é meio careta e tem até horário para dormir. Mas cuidado! Ele ainda faz picadinho de quem pisa na bola.</p>
+			    						<a href="brawler.php?id=4" class="btn btn-primary">Ver Mais</a>
+			    					</div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			  	</div>
 
-			      		<!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
+			  	<div class="col">
+			    	<div class="card raro" style="width: 100%;">
+			    		<div class="card-body">
+			    			<h5 class="card-title">El Primo</h5>
+			    			<p class="card-text">Tanque</p>
+			    		</div>
+			    		<img src="imagem" class="card-img-top" data-bs-toggle="modal" data-bs-target="#modalNome">
+			    		<div class="accordion" id="accordion-elprimo">
+			    			<div class="accordion-item">
+			    				<h2 class="accordion-header">
+			    					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-elprimo" aria-expanded="false" aria-controls="collapse-elprimo">
+			    						Ver Descrição
+			    					</button>
+			    				</h2>
+			    				<div id="collapse-elprimo" class="accordion-collapse collapse" data-bs-parent="#accordion-elprimo">
+			    					<div class="accordion-body">
+			    						<p>El Primo gosta de se exibir no ringue e nasceu para isso. Todo mundo delira quando ele entra em cena. Alguns de alegria, outro de dor mesmo...</p>
+			    						<a href="brawler.php?id=5" class="btn btn-primary">Ver Mais</a>
+			    					</div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			  	</div>
+
+			  	<div class="col">
+			    	<div class="card raro" style="width: 100%;">
+			    		<div class="card-body">
+			    			<h5 class="card-title">Barley</h5>
+			    			<p class="card-text">Detonador</p>
+			    		</div>
+			    		<img src="imagem" class="card-img-top" data-bs-toggle="modal" data-bs-target="#modalNome">
+			    		<div class="accordion" id="accordion-barley">
+			    			<div class="accordion-item">
+			    				<h2 class="accordion-header">
+			    					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-barley" aria-expanded="false" aria-controls="collapse-barley">
+			    						Ver Descrição
+			    					</button>
+			    				</h2>
+			    				<div id="collapse-barley" class="accordion-collapse collapse" data-bs-parent="#accordion-barley">
+			    					<div class="accordion-body">
+			    						<p>Um barman-robô projetado para preparar bebidas e entreter clientes, Barley faz questão de deixar o bar sempre brilhando. Se precisar, ele usa os baderneiros como pano de chão.</p>
+			    						<a href="brawler.php?id=6" class="btn btn-primary">Ver Mais</a>
+			    					</div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			  	</div>
+
+			  	<div class="col">
+			    	<div class="card raro" style="width: 100%;">
+			    		<div class="card-body">
+			    			<h5 class="card-title">Poco</h5>
+			    			<p class="card-text">Suporte</p>
+			    		</div>
+						<img src="img/Poco.png" class="card-img-top img" alt="Poco" style="object-fit: cover;">
+						<div class="accordion" id="accordion-poco">
 							<div class="accordion-item">
-							    <h2 class="accordion-header">
-							      	<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-							       		Veja mais
-							      	</button>
-							    </h2>
-							    <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-							      	<div class="accordion-body">
-							        	Como todo milenial, Bull já não é o touro selvagem de antes, é meio careta e tem até horário para dormir. Mas cuidado! Ele ainda faz picadinho de quem pisa na bola.
-							      	</div>
-							    </div>
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-poco" aria-expanded="false" aria-controls="collapse-poco">
+										Ver Descrição
+									</button>
+								</h2>
+								<div id="collapse-poco" class="accordion-collapse collapse" data-bs-parent="#accordion-poco">
+									<div class="accordion-body">
+										<p>Poco acredita no poder curativo da música e, por isso está sempre tocando (mesmo quando pedem para ele parar).</p>
+										<a href="brawler.php?id=7" class="btn btn-primary">Ver Mais</a>
+									</div>
+								</div>
 							</div>
 						</div>
 			    	</div>
 			  	</div>
 
 			  	<div class="col">
-			    	<div class="card raro" style="width: 16em;" >
-			      		<div class="card-body">
-				        <h5 class="card-title">El Primo</h5>
-				        <p class="card-text">Tanque</p>
-				      	</div>
-			      		<img src="img/Elprimo.png" class="card-img-top img" alt="..." id="2B" data-bs-toggle="modal" data-bs-target="#modalElprimo">
-
-			      		<!-- Modal Elprimo -->
-					    <div class="modal fade" id="modalElprimo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalElprimoLabel" aria-hidden="true">
-					      	<!-- Modal com tamanho médio -->
-					      	<div class="modal-dialog modal-md">
-					        	<div class="modal-content">
-					          		<div class="modal-header">
-					            		<h1 class="modal-title fs-5" id="modalElprimoLabel">El Primo - Animação de Vitória</h1>
-					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					          		</div>
-					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/ElPrimo_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
-					          		</div>
-						          	<div class="modal-footer">
-							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-						          	</div>
-					        	</div>
-					      	</div>
-					    </div>
-
-			      		<!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
-						  	<div class="accordion-item">
-						    	<h2 class="accordion-header">
-						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-						        		Veja mais
-						      		</button>
-						    	</h2>
-						    	<div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-						      		<div class="accordion-body">
-						        		El Primo gosta de se exibir no ringue e nasceu para isso. Todo mundo delira quando ele entra em cena. Alguns de alegria, outro de dor mesmo...
-						      		</div>
-						    	</div>
-						  	</div>
+			    	<div class="card raro" style="width: 100%;">
+			    		<div class="card-body">
+			    			<h5 class="card-title">Rosa</h5>
+			    			<p class="card-text">Tanque</p>
+			    		</div>
+			    		<a href="brawler.php?id=8" target="_blank">
+			    			<img src="img/Rosa.png" class="card-img-top img" alt="Rosa" style="object-fit: cover;">
+			    		</a>
+						<!-- Modal Rico -->
+						<div class="modal fade" id="modalRico" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalRicoLabel" aria-hidden="true">
+							<!-- Modal com tamanho médio -->
+							<div class="modal-dialog modal-md">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="modalRicoLabel">Rico - Animação de Vitória</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+										<video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+											<source src="img/Rico_.mp4" type="video/mp4">
+											Seu navegador não suporta o vídeo.
+										</video>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+									</div>
+								</div>
+							</div>
 						</div>
+			    		<div class="accordion" id="accordion-rosa">
+			    			<div class="accordion-item">
+			    				<h2 class="accordion-header">
+			    					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-rosa" aria-expanded="false" aria-controls="collapse-rosa">
+			    						Ver Descrição
+			    					</button>
+			    				</h2>
+			    				<div id="collapse-rosa" class="accordion-collapse collapse" data-bs-parent="#accordion-rosa">
+			    					<div class="accordion-body">
+			    						<p>Rosa é uma botânica muito ligada às plantas. Ela também é boxeadora e não vacila em plantar a mão na cara de quem a desobedecer!</p>
+			    						<a href="brawler.php?id=8" class="btn btn-primary">Ver Mais</a>
+			    					</div>
+			    				</div>
+			    			</div>
+			    		</div>
 			    	</div>
 			  	</div>
-
-			  	<div class="col">
-			    	<div class="card raro" style="width: 16em;" >
-			      		<div class="card-body">
-				        <h5 class="card-title">Barley</h5>
-				        <p class="card-text">Detonador</p>
-				      	</div>
-			      		<img src="img/Barley.png" class="card-img-top img" alt="..." id="2B" data-bs-toggle="modal" data-bs-target="#modalBarley"> 
-
-			      		<!-- Modal Barley -->
-					    <div class="modal fade" id="modalBarley" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalBarleyLabel" aria-hidden="true">
-					      	<!-- Modal com tamanho médio -->
-					      	<div class="modal-dialog modal-md">
-					        	<div class="modal-content">
-					          		<div class="modal-header">
-					            		<h1 class="modal-title fs-5" id="modalBarleyLabel">Barley - Animação de Vitória</h1>
-					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					          		</div>
-					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Barley_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
-					          		</div>
-						          	<div class="modal-footer">
-							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-						          	</div>
-					        	</div>
-					      	</div>
-					    </div>
-
-			      		<!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
-						  	<div class="accordion-item">
-						    	<h2 class="accordion-header">
-						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
-						        		Veja mais
-						      		</button>
-						    	</h2>
-						    	<div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-						      		<div class="accordion-body">
-						        	Um barman-robô projetado para preparar beibdas e entreter clietes, Barley faz questão de deixar o bar sempre brilhando. Se precisar, ele usa os baderneiros como pano de chão.
-						      		</div>
-						    	</div>
-						  	</div>
-						</div>
-			    	</div>
-			  	</div>
-
-			  	<div class="col">
-			    	<div class="card raro" style="width: 16em;" >
-			      		<div class="card-body">
-				        <h5 class="card-title">Poco</h5>
-				        <p class="card-text">Suporte</p>
-				      	</div>
-			      		<img src="img/Poco.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalPoco">
-
-			      		<!-- Modal Poco -->
-					    <div class="modal fade" id="modalPoco" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalPocoLabel" aria-hidden="true">
-					      	<!-- Modal com tamanho médio -->
-					      	<div class="modal-dialog modal-md">
-					        	<div class="modal-content">
-					          		<div class="modal-header">
-					            		<h1 class="modal-title fs-5" id="modalPocoLabel">Poco - Animação de Vitória</h1>
-					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					          		</div>
-					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Poco_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
-					          		</div>
-						          	<div class="modal-footer">
-							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-						          	</div>
-					        	</div>
-					      	</div>
-					    </div>
-
-			      		<!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
-						  	<div class="accordion-item">
-						    	<h2 class="accordion-header">
-						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
-						        		Veja mais
-						      		</button>
-						    	</h2>
-						    	<div id="collapse7" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-						     		<div class="accordion-body">
-						       		Poco acredita no poder curativo da música e, por isso esta sempre tocando(mesmo quando pedem para ele parar).
-						       		</div>
-						    	</div>
-						  	</div>
-						</div>
-			    	</div>
-			  	</div>
-
-			  	<div class="col">
-			    	<div class="card raro" style="width: 16em;" >
-			      		<div class="card-body">
-			        	<h5 class="card-title">Rosa</h5>
-			        	<p class="card-text">Tanque</p>
-			      		</div>
-			      		<img src="img/Rosa.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalRosa">
-
-			      		<!-- Modal Rosa -->
-					    <div class="modal fade" id="modalRosa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalRosaLabel" aria-hidden="true">
-					      	<!-- Modal com tamanho médio -->
-					      	<div class="modal-dialog modal-md">
-					        	<div class="modal-content">
-					          		<div class="modal-header">
-					            		<h1 class="modal-title fs-5" id="modalRosaLabel">Rosa - Animação de Vitória</h1>
-					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					          		</div>
-					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Rosa_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
-					          		</div>
-						          	<div class="modal-footer">
-							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-						          	</div>
-					        	</div>
-					      	</div>
-					    </div>
-
-			      		<!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
-						  	<div class="accordion-item">
-						    	<h2 class="accordion-header">
-						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
-						        		Veja mais
-						      		</button>
-						    	</h2>
-						    	<div id="collapse8" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-						      		<div class="accordion-body">
-						        		Rosa é uma botânica muito ligada às plantas. Ela também é boxeadora e não vacila em plantar a mão na cara de quem a desobedecer!
-						      		</div>
-						    	</div>
-						  	</div>
-						</div>
-			    	</div>
-			  	</div>
+			<?php endif; ?>
 
 			</div>
+		</div>
+	</section>
+
+</div>
 		</div>
 	</section>
 	
@@ -692,28 +500,28 @@
 			      	</div>
 		      		<img src="img/Rico.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalRico">
 
-		      		<!-- Modal Rico -->
-					    <div class="modal fade" id="modalRico" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalRicoLabel" aria-hidden="true">
-					      	<!-- Modal com tamanho médio -->
-					      	<div class="modal-dialog modal-md">
-					        	<div class="modal-content">
-					          		<div class="modal-header">
-					            		<h1 class="modal-title fs-5" id="modalRicoLabel">Rico - Animação de Vitória</h1>
-					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					          		</div>
-					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Rico_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
-					          		</div>
-						          	<div class="modal-footer">
-							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-						          	</div>
-					        	</div>
-					      	</div>
-					    </div>
+					<!-- Modal Rico -->
+					<div class="modal fade" id="modalRico" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalRicoLabel" aria-hidden="true">
+						<!-- Modal com tamanho médio -->
+						<div class="modal-dialog modal-md">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="modalRicoLabel">Rico - Animação de Vitória</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+									<video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+										<source src="img/Rico_.mp4" type="video/mp4">
+										Seu navegador não suporta o vídeo.
+									</video>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+								</div>
+							</div>
+						</div>
+					</div>
 
 		      		<!-- Accordion (se necessário) -->
 		      		<div class="accordion" id="accordionExample">
@@ -932,24 +740,24 @@
 		  	<div class="col">
 		    	<div class="card super-raro" style="width: 16em;" >
 		      		<div class="card-body">
-		        	<h5 class="card-title">Dynamike</h5>
-		        	<p class="card-text">Detonador</p>
+			        <h5 class="card-title">Piper</h5>
+			        <p class="card-text">Algoz</p>
 		      		</div>
-		      		<img src="img/Dynamike.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalDynamike">
+		      		<img src="img/Piper.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalPiper">
 
-		      		<!-- Modal Dynamike -->
-					    <div class="modal fade" id="modalDynamike" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDynamikeLabel" aria-hidden="true">
+		      		<!-- Modal Piper -->
+					    <div class="modal fade" id="modalPiper" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalPiperLabel" aria-hidden="true">
 					      	<!-- Modal com tamanho médio -->
 					      	<div class="modal-dialog modal-md">
 					        	<div class="modal-content">
 					          		<div class="modal-header">
-					            		<h1 class="modal-title fs-5" id="modalDynamikeLabel">Dynamike - Animação de Vitória</h1>
+					            		<h1 class="modal-title fs-5" id="modalPiperLabel">Piper - Animação de Vitória</h1>
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
 							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
 							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Dynamike_.mp4" type="video/mp4">
+							              <source src="img/Piper_.mp4" type="video/mp4">
 							              Seu navegador não suporta o vídeo.
 							            </video>
 					          		</div>
@@ -964,13 +772,62 @@
 		      		<div class="accordion" id="accordionExample">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
-					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse16" aria-expanded="false" aria-controls="collapse16">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse17" aria-expanded="false" aria-controls="collapse17">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse16" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse17" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 					      		<div class="accordion-body">
-					        		Dynamike é um garimpeiro aposentado que, depois de vários anos usando dinamites, ficou obcecado com explosões. Ano-Novo, aniversários, batalhas... tudo é um BOOOM motivo para explodir algo!
+					        		Piper é uma caçadora de recompensas que usa um rifle de paintball. Ela é muito precisa e gosta de atirar de longe.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card super-raro" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Penny</h5>
+			        <p class="card-text">Suporte</p>
+		      		</div>
+		      		<img src="img/Penny.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalPenny">
+
+		      		<!-- Modal Penny -->
+					    <div class="modal fade" id="modalPenny" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalPennyLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalPennyLabel">Penny - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Penny_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse18" aria-expanded="false" aria-controls="collapse18">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse18" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Penny é uma menina que usa um canhão de fogo. Ela é muito animada e gosta de explodir coisas.
 					      		</div>
 					    	</div>
 					  	</div>
@@ -1385,6 +1242,251 @@
 		    	</div>
 		  	</div>
 
+		  	<div class="col">
+		    	<div class="card epico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Sam</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Sam.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalSam">
+
+		      		<!-- Modal Sam -->
+					    <div class="modal fade" id="modalSam" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSamLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalSamLabel">Sam - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Sam_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse25" aria-expanded="false" aria-controls="collapse25">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse25" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Sam é um cowboy que usa revólveres. Ele é rápido no gatilho e gosta de duelos.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card epico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Bea</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Bea.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalBea">
+
+		      		<!-- Modal Bea -->
+					    <div class="modal fade" id="modalBea" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalBeaLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalBeaLabel">Bea - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Bea_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse26" aria-expanded="false" aria-controls="collapse26">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse26" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Bea é uma boxeadora que usa luvas. Ela é forte e gosta de lutar corpo a corpo.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card epico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Larry & Lawrie</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Larry & Lawrie.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalLarryLawrie">
+
+		      		<!-- Modal Larry & Lawrie -->
+					    <div class="modal fade" id="modalLarryLawrie" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLarryLawrieLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalLarryLawrieLabel">Larry & Lawrie - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Larry & Lawrie_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse27" aria-expanded="false" aria-controls="collapse27">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse27" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Larry & Lawrie são irmãos gêmeos que usam armas. Eles são idênticos e gostam de confusão.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card epico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Edgar</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Edgar.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalEdgar">
+
+		      		<!-- Modal Edgar -->
+					    <div class="modal fade" id="modalEdgar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEdgarLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalEdgarLabel">Edgar - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Edgar_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse28" aria-expanded="false" aria-controls="collapse28">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse28" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Edgar é um vampiro que suga sangue. Ele é misterioso e gosta da noite.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card epico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Amber</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Amber.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalAmber">
+
+		      		<!-- Modal Amber -->
+					    <div class="modal fade" id="modalAmber" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAmberLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalAmberLabel">Amber - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Amber_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse29" aria-expanded="false" aria-controls="collapse29">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse29" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Amber é uma arqueira que usa arco. Ela é precisa e gosta de caçar.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
 		</div>
 	</section>
 
@@ -1745,8 +1847,8 @@
 		  	<div class="col">
 		    	<div class="card mitico" style="width: 16em;" >
 		      		<div class="card-body">
-		        	<h5 class="card-title">Max</h5>
-		        	<p class="card-text">Suporte</p>
+			        <h5 class="card-title">Max</h5>
+			        <p class="card-text">Suporte</p>
 		      		</div>
 		      		<img src="img/Max.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalMax">
 
@@ -1784,6 +1886,643 @@
 					    	<div id="collapse32" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 					      		<div class="accordion-body">
 					        		Abastecida por energéticos, Max aparece para ajudar num piscar de olhos, mas acaba passando como trovão, sem tempo de fazer muita coisa. Bem, o que vale é a intenção.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Otis</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Otis.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalOtis">
+
+		      		<!-- Modal Otis -->
+					    <div class="modal fade" id="modalOtis" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalOtisLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalOtisLabel">Otis - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Otis_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse33" aria-expanded="false" aria-controls="collapse33">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse33" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Otis é um urso preguiçoso que adora dormir e comer mel. Ele é muito forte, mas prefere não se esforçar muito.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Gene</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Gene.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalGene">
+
+		      		<!-- Modal Gene -->
+					    <div class="modal fade" id="modalGene" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalGeneLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalGeneLabel">Gene - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Gene_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse34" aria-expanded="false" aria-controls="collapse34">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse34" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Gene é um cientista louco que cria invenções malucas. Ele é muito inteligente, mas suas criações nem sempre funcionam como esperado.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Sprout</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Sprout.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalSprout">
+
+		      		<!-- Modal Sprout -->
+					    <div class="modal fade" id="modalSprout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSproutLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalSproutLabel">Sprout - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Sprout_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse35" aria-expanded="false" aria-controls="collapse35">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse35" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Sprout é um robô agricultor que cuida das plantas. Ele é muito cuidadoso e gosta de fazer tudo crescer.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Surge</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Surge.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalSurge">
+
+		      		<!-- Modal Surge -->
+					    <div class="modal fade" id="modalSurge" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSurgeLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalSurgeLabel">Surge - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Surge_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse36" aria-expanded="false" aria-controls="collapse36">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse36" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Surge é um robô elétrico que controla raios. Ele é muito poderoso e gosta de causar choques.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Chester</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Chester.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalChester">
+
+		      		<!-- Modal Chester -->
+					    <div class="modal fade" id="modalChester" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalChesterLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalChesterLabel">Chester - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Chester_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse37" aria-expanded="false" aria-controls="collapse37">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse37" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Chester é um gato preguiçoso que adora dormir. Ele é muito fofo, mas não faz muito esforço.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Piper</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Piper.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalPiper">
+
+		      		<!-- Modal Piper -->
+					    <div class="modal fade" id="modalPiper" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalPiperLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalPiperLabel">Piper - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Piper_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse38" aria-expanded="false" aria-controls="collapse38">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse38" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Piper é uma menina que usa um rifle de paintball. Ela é muito precisa e gosta de atirar de longe.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Brock</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Brock.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalBrock">
+
+		      		<!-- Modal Brock -->
+					    <div class="modal fade" id="modalBrock" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalBrockLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalBrockLabel">Brock - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Brock_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse39" aria-expanded="false" aria-controls="collapse39">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse39" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Brock é um lutador profissional que usa socos e chutes. Ele é muito forte e gosta de lutar corpo a corpo.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Dynamike</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Dynamike.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalDynamike">
+
+		      		<!-- Modal Dynamike -->
+					    <div class="modal fade" id="modalDynamike" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDynamikeLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalDynamikeLabel">Dynamike - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Dynamike_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse40" aria-expanded="false" aria-controls="collapse40">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse40" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Dynamike é um mineiro que usa dinamite. Ele é explosivo e gosta de causar destruição.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Buzz</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Buzz.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalBuzz">
+
+		      		<!-- Modal Buzz -->
+					    <div class="modal fade" id="modalBuzz" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalBuzzLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalBuzzLabel">Buzz - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Buzz_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse41" aria-expanded="false" aria-controls="collapse41">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse41" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Buzz é um robô que controla abelhas. Ele é muito zumbidor e gosta de picar inimigos.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Griff</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Griff.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalGriff">
+
+		      		<!-- Modal Griff -->
+					    <div class="modal fade" id="modalGriff" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalGriffLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalGriffLabel">Griff - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Griff_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse42" aria-expanded="false" aria-controls="collapse42">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse42" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Griff é um pássaro que voa alto. Ele é muito rápido e gosta de atacar do céu.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Ash</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Ash.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalAsh">
+
+		      		<!-- Modal Ash -->
+					    <div class="modal fade" id="modalAsh" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAshLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalAshLabel">Ash - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Ash_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse43" aria-expanded="false" aria-controls="collapse43">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse43" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Ash é um caçador que usa arco e flecha. Ele é muito preciso e gosta de caçar presas.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Lola</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Lola.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalLola">
+
+		      		<!-- Modal Lola -->
+					    <div class="modal fade" id="modalLola" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLolaLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalLolaLabel">Lola - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Lola_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse44" aria-expanded="false" aria-controls="collapse44">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse44" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Lola é uma acrobata que usa acrobacias. Ela é muito ágil e gosta de se mover rapidamente.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card mitico" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Ruffs</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Ruffs.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalRuffs">
+
+		      		<!-- Modal Ruffs -->
+					    <div class="modal fade" id="modalRuffs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalRuffsLabel" aria-hidden="true">
+					      	<!-- Modal com tamanho médio -->
+					      	<div class="modal-dialog modal-md">
+					        	<div class="modal-content">
+					          		<div class="modal-header">
+					            		<h1 class="modal-title fs-5" id="modalRuffsLabel">Ruffs - Animação de Vitória</h1>
+					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					          		</div>
+					          		<div class="modal-body">
+							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
+							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+							              <source src="img/Ruffs_.mp4" type="video/mp4">
+							              Seu navegador não suporta o vídeo.
+							            </video>
+					          		</div>
+						          	<div class="modal-footer">
+							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+						          	</div>
+					        	</div>
+					      	</div>
+					    </div>
+
+		      		<!-- Accordion (se necessário) -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse45" aria-expanded="false" aria-controls="collapse45">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse45" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Ruffs é um cachorro que late muito. Ele é leal e gosta de proteger seus amigos.
 					      		</div>
 					    	</div>
 					  	</div>
@@ -2197,6 +2936,186 @@
 		    	</div>
 		  	</div>
 
+		  	<div class="col">
+		    	<div class="card lendario" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Mandy</h5>
+			        <p class="card-text">Destruidor</p>
+		      		</div>
+		      		<img src="img/Mandy.png" class="card-img-top img" alt="..." >
+		      		<!-- Accordion -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse41" aria-expanded="false" aria-controls="collapse41">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse41" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Mandy é uma destruidora lendária.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card lendario" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Gale</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Gale.png" class="card-img-top img" alt="..." >
+					<!-- Accordion -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse41" aria-expanded="false" aria-controls="collapse41">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse41" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Mandy é uma destruidora lendária.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card lendario" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Belle</h5>
+			        <p class="card-text">Suporte</p>
+		      		</div>
+		      		<img src="img/Belle.png" class="card-img-top img" alt="..." >
+					<!-- Accordion -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse41" aria-expanded="false" aria-controls="collapse41">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse41" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Mandy é uma destruidora lendária.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card lendario" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Ash</h5>
+			        <p class="card-text">Algoz</p>
+		      		</div>
+		      		<img src="img/Ash.png" class="card-img-top img" alt="..." >
+					<!-- Accordion -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse41" aria-expanded="false" aria-controls="collapse41">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse41" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Mandy é uma destruidora lendária.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card lendario" style="width: 16em;" >
+		      		<div class="card-body">
+			        <h5 class="card-title">Lola</h5>
+			        <p class="card-text">Suporte</p>
+		      		</div>
+		      		<img src="img/Lola.png" class="card-img-top img" alt="..." >
+					<!-- Accordion -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse41" aria-expanded="false" aria-controls="collapse41">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse41" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Mandy é uma destruidora lendária.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+
+		</div>
+	</section>
+<div><h1>Ultra Lendario</h1></div>
+	<br id="UltraLendario">
+	<div style="margin-top: 3%;"></div>
+	<section class="container-fluid text-center caixa ">
+		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 m-auto" style="width: 95%; padding-left: 16.2%; padding-right: 15%;">
+			<div class="col">
+				<div class="card ultra-lendario" style="width: 16em;" >
+					<div class="card-body">
+					<h5 class="card-title">kaze</h5>
+					<p class="card-text">Algoz</p>
+					</div>
+					<img src="img/Leon.png" class="card-img-top img" alt="..." >
+					<!-- Accordion -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse41" aria-expanded="false" aria-controls="collapse41">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse41" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Mandy é uma destruidora lendária.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card ultra-lendario" style="width: 16em;" >
+					<div class="card-body">
+					<h5 class="card-title">Spike</h5>
+					<p class="card-text">Algoz</p>
+					</div>
+					<img src="img/Spike.png" class="card-img-top img" alt="..." >
+					<!-- Accordion -->
+		      		<div class="accordion" id="accordionExample">
+					  	<div class="accordion-item">
+					    	<h2 class="accordion-header">
+					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse41" aria-expanded="false" aria-controls="collapse41">
+					       	 		Veja mais
+					      		</button>
+					    	</h2>
+					    	<div id="collapse41" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					      		<div class="accordion-body">
+					        		Mandy é uma destruidora lendária.
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -2359,80 +3278,12 @@
 
 
 
-<div style="margin-top: 10%;"></div>
-
-
-	<nav aria-label="..." >
- 		<ul class="pagination Mx-auto text-center d-flex justify-content-center" >
-		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="index.html">1</a></li>
-		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="index2.html">2</a></li>
-		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="index3.html">3</a></li>
-	  	</ul>
-	</nav>
-
-
-
-
-	<!-- Scrollable modal -->
-<div class="modal-dialog modal-dialog-scrollable">
-  ...
-</div>
-
-
-
-<!-- Inicio NavBar -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const navbar = document.querySelector('.navbar-custom');
-        const visuaisButton = document.getElementById('visuaisButton');
-        const visuaisMenu = document.getElementById('visuaisMenu');
-        const raridadeButton = document.getElementById('raridadeButton');
-        const raridadeMenu = document.getElementById('raridadeMenu');
-        const raridadeIcon = raridadeButton.querySelector('i'); // Seleciona o ícone da seta
-
-        // Mudança de cor da navbar ao rolar a página
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Abrir/Fechar o menu "Visuais" ao clicar
-        visuaisButton.addEventListener('click', function (e) {
-            e.stopPropagation();
-            visuaisMenu.classList.toggle('show');
-            raridadeMenu.classList.remove('show');
-            // Remove o foco do botão após o clique
-            visuaisButton.blur();
-        });
-
-        // Abrir/Fechar o submenu "Raridade" ao clicar
-        raridadeButton.addEventListener('click', function (e) {
-            e.stopPropagation();
-            raridadeMenu.classList.toggle('show');
-            // Remove o foco do botão após o clique
-            raridadeButton.blur();
-        });
-
-        // Fechar todos os submenus ao clicar fora da navbar
-        document.addEventListener('click', function () {
-            visuaisMenu.classList.remove('show');
-            raridadeMenu.classList.remove('show');
-        });
-    });
-</script>
+<div style="margin-top: 20%;"></div>
 
 
 
 
 
-
-
-
-
-<!-- Termino NavBar -->
 
 
 
@@ -2570,9 +3421,11 @@ document.getElementById("brawlerSelect2").addEventListener("change", () => {
 
 
 <!--Termino Comparacao dos Brawlers-->
-
+<?php include 'includes/footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/navbar-scroll.js"></script>
+    <script src="js/darkmode.js"></script>
 
 </body>
 </html>

@@ -6,81 +6,17 @@
 	<title></title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-<link rel="stylesheet" href="css/index3.css">
+    <link rel="stylesheet" href="css/index3.css">
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/cards.css">
 <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg fixed-top navbar-custom" >
-    <div class="container-fluid">
-        <!-- Logo -->
-        <a class="navbar-brand" href="index.html">
-            <img src="https://static.vecteezy.com/system/resources/previews/027/127/558/large_2x/brawl-stars-logo-brawl-stars-icon-transparent-free-png.png" class="tamanhoimagem" alt="Logo">
-        </a>
-
-        <!-- Texto Centralizado "Brast" -->
-        <span class="navbar-text mx-auto d-none d-lg-block">
-            Brast
-        </span>
-
-        <!-- Botão Toggler -->
-        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-        </button>
-
-        <!-- Menu colapsável -->
-        <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-
-                <!-- Submenu Visuais -->
-                <li class="nav-item dropdown">
-                    <button class="nav-link btn btn-link dropdown-toggle" id="visuaisButton">Visuais
-                        <i class="fas fa-chevron-down"></i> <!-- Ícone de seta -->
-                    </button>
-                    <ul class="dropdown-menu dropdown-horizontal" id="visuaisMenu">
-                    	<li><a class="dropdown-item" href="index2.html#BrawlerDoDia">Brawler do dia</a></li>
-                        <li>
-                            <button class="dropdown-item dropdown-toggle" id="raridadeButton">Raridade
-                                
-                            </button>
-                            <ul class="dropdown-menu dropdown-horizontal" id="raridadeMenu">
-                                <li><a class="dropdown-item" href="index2.html#Raro">Raro</a></li>
-                                <li><a class="dropdown-item" href="index2.html#Super-Raro">Super-Raro</a></li>
-                                <li><a class="dropdown-item" href="index2.html#Epico">Epico</a></li>
-                                <li><a class="dropdown-item" href="index2.html#Mitico">Mitico</a></li>
-                                <li><a class="dropdown-item" href="index2.html#Lendario">Lendario</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="dropdown-item" href="index2.html#Comparação de Brawlers">Comparação de Brawlers</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Recursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Recursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Recursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Recursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Recursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Recursos</a>
-                </li>
-              
-            </ul>
-        </div>
-    </div>
-</nav>
+    <?php include 'includes/navbar.php'; ?>
 
 	<div style="margin-top: 5%;"></div>
 
@@ -282,21 +218,6 @@
 
     <div style="margin-top: 10%;"></div>
 
-
-	
-
-
-	
-
-	<nav aria-label="..." >
- 		<ul class="pagination Mx-auto text-center d-flex justify-content-center" >
-		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="index.html">1</a></li>
-		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="index2.html">2</a></li>
-		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="index3.html">3</a></li>
-	  	</ul>
-	</nav>
-<div style="margin-top: 5%;"></div>
-
 <!-- Inicio NavBar -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -344,6 +265,8 @@
 <!-- Termino NavBar -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<?php include 'includes/footer.php'; ?>
 
 </body>
 </html>

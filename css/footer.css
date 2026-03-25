@@ -1,0 +1,49 @@
+
+
+.footer {
+    width: 100%;
+    min-height: 150px;             /* altura mínima agradável */
+    background-color: #1465bb;     /* cor principal */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;        /* inclui padding na largura */
+    padding: 20px 0;
+    z-index: 999;
+    position: relative;
+    bottom: 0;
+}
+
+/* Garante que a área de conteúdo estique para empurrar o footer até embaixo */
+main {
+    flex: 1;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+
+.footer-logo {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.footer-links a,
+.footer-social a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+    color: #f0f0f0;
+}
+
+.footer-social i {
+    font-size: 1.2rem;
+}

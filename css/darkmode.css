@@ -1,0 +1,401 @@
+/* ===== DARK MODE STYLES ===== */
+
+/* Variáveis CSS para cores */
+:root {
+    --bg-primary: #BBDEFB;
+    --bg-secondary: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --card-bg: #ffffff;
+    --border-color: #cccccc;
+}
+
+body.dark-mode {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --card-bg: #2d2d2d;
+    --border-color: #444444;
+}
+
+/* Fundo e texto geral */
+body.dark-mode {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* Cards (brawler cards) */
+body.dark-mode .card {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .brawler-card {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+
+/* Navbar em dark mode */
+body.dark-mode .navbar.bg-primary {
+    background-color: #0d47a1 !important;
+}
+
+body.dark-mode .nav-link {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .nav-link:hover {
+    color: #bbdefb !important;
+}
+
+/* Dropdown em dark mode */
+body.dark-mode .dropdown-menu {
+    background-color: #1a1a2e;
+    border-color: #444444;
+}
+
+body.dark-mode .dropdown-item {
+    color: #e0e0e0;
+}
+
+body.dark-mode .dropdown-item:hover,
+body.dark-mode .dropdown-item:focus {
+    background-color: #0f3460;
+    color: #bbdefb;
+}
+
+/* Footer em dark mode */
+body.dark-mode .footer {
+    background-color: #0d47a1;
+    color: #e0e0e0;
+}
+
+body.dark-mode .footer a {
+    color: #bbdefb;
+}
+
+body.dark-mode .footer a:hover {
+    color: #e0e0e0;
+}
+
+/* Botão de toggle */
+#darkModeToggle {
+    transition: all 0.3s ease;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+#darkModeToggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode #darkModeToggle {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffeb3b;
+}
+
+body.dark-mode #darkModeToggle:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #fff59d;
+}
+
+/* Accordion em dark mode */
+body.dark-mode .accordion-button {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .accordion-button:not(.collapsed) {
+    background-color: #0d47a1;
+    color: #e0e0e0;
+}
+
+body.dark-mode .accordion-collapse {
+    background-color: #2d2d2d;
+    color: var(--text-primary);
+}
+
+/* Texto em modais/alertas */
+body.dark-mode .modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .modal-header {
+    background-color: #0d47a1;
+    color: #e0e0e0;
+    border-color: var(--border-color);
+}
+
+body.dark-mode .modal-title {
+    color: #e0e0e0;
+}
+
+body.dark-mode .btn-close {
+    filter: invert(1);
+}
+
+/* Links em dark mode */
+body.dark-mode a {
+    color: #64b5f6;
+}
+
+body.dark-mode a:hover {
+    color: #90caf9;
+}
+
+/* Cards em dark mode - CORES SUPER FORTES */
+body.dark-mode .card-raro {
+    border-color: #39ff14 !important;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.5) !important;
+    background: linear-gradient(135deg, rgba(57, 255, 20, 0.15), rgba(57, 255, 20, 0.05)) !important;
+}
+
+body.dark-mode .card-raro:hover {
+    border-color: #76ff03 !important;
+    box-shadow: 0 0 30px rgba(118, 255, 3, 0.7) !important;
+}
+
+body.dark-mode .card-super-raro {
+    border-color: #00d4ff !important;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5) !important;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 212, 255, 0.05)) !important;
+}
+
+body.dark-mode .card-super-raro:hover {
+    border-color: #00ffff !important;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7) !important;
+}
+
+body.dark-mode .card-epico {
+    border-color: #c70cda !important;
+    box-shadow: 0 0 20px rgba(199, 12, 218, 0.5) !important;
+    background: linear-gradient(135deg, rgba(199, 12, 218, 0.15), rgba(199, 12, 218, 0.05)) !important;
+}
+
+body.dark-mode .card-epico:hover {
+    border-color: #ff00ff !important;
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.7) !important;
+}
+
+body.dark-mode .card-mitico {
+    border-color: #b22222 !important;
+    box-shadow: 0 0 20px rgba(178, 34, 34, 0.5) !important;
+    background: linear-gradient(135deg, rgba(178, 34, 34, 0.15), rgba(178, 34, 34, 0.05)) !important;
+}
+
+body.dark-mode .card-mitico:hover {
+    border-color: #dc143c !important;
+    box-shadow: 0 0 30px rgba(220, 20, 60, 0.7) !important;
+}
+
+body.dark-mode .card-lendario {
+    border-color: #ffff00 !important;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.5) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 0, 0.15), rgba(255, 255, 0, 0.05)) !important;
+}
+
+body.dark-mode .card-lendario:hover {
+    border-color: #ffea00 !important;
+    box-shadow: 0 0 30px rgba(255, 234, 0, 0.7) !important;
+}
+
+/* Fallback cards (quando banco vazio) - CORES NEON */
+body.dark-mode .card.raro {
+    border-color: #39ff14 !important;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.5) !important;
+    background: linear-gradient(135deg, rgba(57, 255, 20, 0.1), rgba(57, 255, 20, 0.03)) !important;
+}
+
+body.dark-mode .card.raro:hover {
+    border-color: #76ff03 !important;
+    box-shadow: 0 0 30px rgba(118, 255, 3, 0.7) !important;
+}
+
+body.dark-mode .card.super-raro {
+    border-color: #00d4ff !important;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5) !important;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 212, 255, 0.03)) !important;
+}
+
+body.dark-mode .card.super-raro:hover {
+    border-color: #00ffff !important;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7) !important;
+}
+
+body.dark-mode .card.epico {
+    border-color: #c70cda !important;
+    box-shadow: 0 0 20px rgba(199, 12, 218, 0.5) !important;
+    background: linear-gradient(135deg, rgba(199, 12, 218, 0.1), rgba(199, 12, 218, 0.03)) !important;
+}
+
+body.dark-mode .card.epico:hover {
+    border-color: #ff00ff !important;
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.7) !important;
+}
+
+body.dark-mode .card.mitico {
+    border-color: #b22222 !important;
+    box-shadow: 0 0 20px rgba(178, 34, 34, 0.5) !important;
+    background: linear-gradient(135deg, rgba(178, 34, 34, 0.1), rgba(178, 34, 34, 0.03)) !important;
+}
+
+body.dark-mode .card.mitico:hover {
+    border-color: #dc143c !important;
+    box-shadow: 0 0 30px rgba(220, 20, 60, 0.7) !important;
+}
+
+body.dark-mode .card.lendario {
+    border-color: #ffff00 !important;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.5) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 0, 0.1), rgba(255, 255, 0, 0.03)) !important;
+}
+
+body.dark-mode .card.lendario:hover {
+    border-color: #ffea00 !important;
+    box-shadow: 0 0 30px rgba(255, 234, 0, 0.7) !important;
+}
+
+body.dark-mode .card.ultra-lendario {
+    border-color: #ffd700 !important;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.03)) !important;
+}
+
+body.dark-mode .card.ultra-lendario:hover {
+    border-color: #ffed4e !important;
+    box-shadow: 0 0 30px rgba(255, 237, 78, 0.7) !important;
+}
+
+/* ===== MODO CLARO - CORES NEON também ===== */
+
+.card.raro {
+    border-color: #39ff14 !important;
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.3) !important;
+    background: linear-gradient(135deg, rgba(57, 255, 20, 0.05), rgba(57, 255, 20, 0.01)) !important;
+}
+
+.card.raro:hover {
+    border-color: #76ff03 !important;
+    box-shadow: 0 0 25px rgba(118, 255, 3, 0.5) !important;
+}
+
+.card.super-raro {
+    border-color: #00d4ff !important;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3) !important;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(0, 212, 255, 0.01)) !important;
+}
+
+.card.super-raro:hover {
+    border-color: #00ffff !important;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5) !important;
+}
+
+.card.epico {
+    border-color: #c70cda !important;
+    box-shadow: 0 0 15px rgba(199, 12, 218, 0.3) !important;
+    background: linear-gradient(135deg, rgba(199, 12, 218, 0.05), rgba(199, 12, 218, 0.01)) !important;
+}
+
+.card.epico:hover {
+    border-color: #ff00ff !important;
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.5) !important;
+}
+
+.card.mitico {
+    border-color: #b22222 !important;
+    box-shadow: 0 0 15px rgba(178, 34, 34, 0.3) !important;
+    background: linear-gradient(135deg, rgba(178, 34, 34, 0.05), rgba(178, 34, 34, 0.01)) !important;
+}
+
+.card.mitico:hover {
+    border-color: #dc143c !important;
+    box-shadow: 0 0 25px rgba(220, 20, 60, 0.5) !important;
+}
+
+.card.lendario {
+    border-color: #ffff00 !important;
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.3) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 0, 0.05), rgba(255, 255, 0, 0.01)) !important;
+}
+
+.card.lendario:hover {
+    border-color: #ffea00 !important;
+    box-shadow: 0 0 25px rgba(255, 234, 0, 0.5) !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #bbdefb;
+}
+
+/* Bordas de raridade em dark mode (mantém cores vibrantes) */
+body.dark-mode .card-raro {
+    box-shadow: 0px 0px 10px rgba(34, 139, 34, 0.4);
+}
+
+body.dark-mode .card-super-raro {
+    box-shadow: 0px 0px 10px rgba(65, 105, 225, 0.4);
+}
+
+body.dark-mode .card-epico {
+    box-shadow: 0px 0px 10px rgba(106, 13, 173, 0.4);
+}
+
+body.dark-mode .card-mitico {
+    box-shadow: 0px 0px 10px rgba(178, 34, 34, 0.4);
+}
+
+body.dark-mode .card-lendario {
+    box-shadow: 0px 0px 10px rgba(255, 255, 0, 0.4);
+}
+
+/* Input fields */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #2d2d2d;
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    background-color: #3a3a3a;
+    border-color: #64b5f6;
+    color: var(--text-primary);
+}
+
+/* Placeholder text */
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Transição suave */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Button styles em dark mode */
+body.dark-mode .btn-primary {
+    background-color: #0d47a1;
+    border-color: #064a95;
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: #0f3460;
+    border-color: #0a2847;
+}

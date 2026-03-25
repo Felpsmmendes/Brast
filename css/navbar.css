@@ -1,0 +1,221 @@
+
+/* ===== NAVBAR ELEGANTE ===== */
+
+/* Navbar base - Sticky e Transparente */
+.navbar-elegant {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(20, 101, 187, 0.05) !important;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 0 !important;
+}
+
+/* Quando o usuário faz scroll, fica opaco */
+.navbar-elegant.scrolled {
+    background-color: rgba(20, 101, 187, 0.85) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 0.6rem 0 !important;
+}
+
+/* Dark mode */
+body.dark-mode .navbar-elegant {
+    background-color: rgba(13, 71, 161, 0.05) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .navbar-elegant.scrolled {
+    background-color: rgba(13, 71, 161, 0.85) !important;
+}
+
+/* Navbar customizada */
+.navbar-custom {
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.navbar-custom.scrolled {
+    background-color: #64B5F6 !important;
+}
+
+/* Logo */
+.tamanhoimagem {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-elegant.scrolled .tamanhoimagem {
+    width: 50px;
+    height: 50px;
+}
+
+/* Estilo dos botões */
+button {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+button:hover,
+button:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+/* Botão ícone tema (Dark Mode) */
+.btn-icon-theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-size: 18px;
+}
+
+.btn-icon-theme:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+}
+
+.btn-icon-theme i {
+    transition: transform 0.3s ease;
+}
+
+.btn-icon-theme:hover i {
+    transform: rotate(20deg) scale(1.1);
+}
+
+/* Dark mode */
+body.dark-mode .btn-icon-theme {
+    background-color: rgba(255, 235, 59, 0.1);
+    border-color: rgba(255, 235, 59, 0.3);
+    color: #ffeb3b;
+}
+
+body.dark-mode .btn-icon-theme:hover {
+    background-color: rgba(255, 235, 59, 0.2);
+    border-color: rgba(255, 235, 59, 0.5);
+    color: #fff59d;
+}
+
+/* Dropdown - elegante e discreto */
+.dropdown-menu {
+    display: none;
+    background-color: rgba(20, 101, 187, 0.95);
+    border-radius: 0.5rem;
+    right: 0;
+    left: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    margin-top: 0.5rem;
+}
+
+.dropdown-menu.show {
+    display: flex;
+    flex-direction: column;
+}
+
+body.dark-mode .dropdown-menu {
+    background-color: rgba(13, 71, 161, 0.95);
+}
+
+ .dropdown-submenu {
+      position: relative;
+    }
+
+    .dropdown-submenu .dropdown-menu {
+      top: 100%;
+      left: 0;
+      margin-top: 0;
+      margin-left: 0;
+      right: auto;
+    }
+
+    /* Exibir o submenu ao passar o mouse */
+    .dropdown-submenu:hover > .dropdown-menu {
+      display: block;
+    }
+
+/* Links do menu */
+.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.nav-link:hover {
+    color: #ffffff !important;
+    padding-bottom: 2px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+body.dark-mode .nav-link {
+    color: rgba(220, 220, 220, 0.9) !important;
+}
+
+body.dark-mode .nav-link:hover {
+    color: #ffffff !important;
+}
+
+/* Evitar que o botão fique na cor de hover após clicar */
+button:focus,
+button:active {
+    background-color: #64B5F6; /* Mantém a cor original */
+    color: #FFFFFF;
+}
+
+/* Estilo para hover e clique nos botões */
+button:hover,
+button:focus-visible {
+    background-color: #64B5F6;
+    color: #FFFFFF;
+}
+
+/* Itens do dropdown */
+.dropdown-item {
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding-left: 1.5rem;
+}
+
+body.dark-mode .dropdown-item {
+    color: rgba(220, 220, 220, 0.9);
+}
+
+body.dark-mode .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+button i {
+    transition: transform 0.3s ease;
+}
+
+/* Quando o submenu de "Raridade" estiver visível, gire a seta */
+#raridadeMenu.show i {
+    transform: rotate(180deg); /* Gira a seta */
+}
