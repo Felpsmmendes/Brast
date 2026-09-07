@@ -1,0 +1,82 @@
+/* =========================================================
+   Brast - Estilos específicos da página Recursos (recursos.html)
+   Estilos comuns (navbar, botões, dropdown, .card base) estão em style.css
+   ========================================================= */
+
+/* Tamanho fixo para os cards de evento ficarem no mesmo padrão dos
+   cards de Brawlers em visuais.html */
+.card-evento {
+    width: 16em;
+    margin: 0 auto;
+}
+
+/* Cada colaboração ganha uma cor de destaque própria, no mesmo espírito
+   das cores por raridade usada nos cards de Brawlers */
+.evento-godzilla {
+    border: 4px solid #2F4F2F;
+    box-shadow: 0px 0px 10px rgba(47, 79, 47, 0.6);
+}
+
+.evento-bob-esponja {
+    border: 4px solid #FFC300;
+    box-shadow: 0px 0px 10px rgba(255, 195, 0, 0.6);
+}
+
+.evento-bt21 {
+    border: 4px solid #9B59B6;
+    box-shadow: 0px 0px 10px rgba(155, 89, 182, 0.6);
+}
+
+/* Caixa grande que agrupa o título, o texto e os cards de cada evento
+   num único bloco visual, no mesmo espírito da caixa azul do topo da
+   página inicial (index.html). */
+.evento-box {
+    max-width: 1100px;
+    margin: 0 auto;
+    border: none;
+    border-top: 6px solid transparent;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    padding: 2.5rem 1.5rem;
+}
+
+/* Fundo fixo branco (acima) só funciona com o texto escuro do tema claro.
+   No tema escuro o texto vira claro (herdado do Bootstrap), então o fundo
+   também precisa escurecer, senão o texto fica claro sobre branco. */
+html[data-bs-theme="dark"] .evento-box {
+    background-color: #1b2836;
+}
+
+/* A fonte Bangers (usada no resto do site) é boa pra títulos, mas pesada
+   demais pra ler um parágrafo inteiro — aqui o texto corrido usa uma fonte
+   normal, alinhada à esquerda e com mais espaço entre linhas, pra ficar
+   mais fácil de ler.
+   O seletor usa ">" (filho direto) de propósito: sem isso, a regra também
+   pegava a etiqueta pequena ("Godzilla"/"Bob Esponja"/"BT21") embaixo do
+   nome de cada skin, que precisa continuar centralizada. */
+.evento-box > .card-body > p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    text-align: left;
+    color: #333333;
+}
+
+html[data-bs-theme="dark"] .evento-box > .card-body > p {
+    color: var(--cor-texto);
+}
+
+.evento-box-godzilla {
+    border-top-color: #2F4F2F;
+}
+
+.evento-box-bob-esponja {
+    border-top-color: #FFC300;
+}
+
+.evento-box-bt21 {
+    border-top-color: #9B59B6;
+}

@@ -1,215 +1,161 @@
-		body{
-     background-color: #BBDEFB; /* Fundo azul marinho */
-    color: #333333; /* Texto em branco para contraste */
-    font-family: 'Bangers', sans-serif;
-}
+/* =========================================================
+   Brast - Estilos específicos da página inicial (index.html)
+   Estilos comuns (navbar, botões, dropdown) estão em style.css
+   ========================================================= */
 
-.size{
-    font-size: 20;
-}
-
- ul li{
-    font-size: large;
-}
-
-
-		/* Navbar customizada */
-.navbar-custom {
-    background-color: transparent;
-    transition: background-color 0.3s;
-}
-
-.navbar-custom.scrolled {
-    background-color: #64B5F6 !important;
-}
-
-/* Estilo da imagem do logo */
-.tamanhoimagem {
-    width: 70px;
-    height: 70px;
-}
-
-/* Estilo dos botões para evitar fundo branco */
-button {
+.fundo_ {
     background-color: #64B5F6;
     color: #FFFFFF;
-    border: none;
-    outline: none;  /* Remove o contorno após o clique */
-}
-
-/* Ocultar submenus inicialmente */
-.dropdown-menu {
-    display: none;
-    background-color: #64B5F6;
-    border-radius: 0.5rem;
-}
-
-/* Mostrar submenus ao clicar */
-.dropdown-menu.show {
-    display: flex;
-}
-
-/* Horizontalidade */
-.dropdown-horizontal {
-    flex-direction: row;
-}
-
-/* Estilo dos links */
-.nav-link {
-    color: #FFFFFF !important;
-}
-
-.nav-link:hover {
-    color: #555 !important;
-}
-
-/* Evitar que o botão fique na cor de hover após clicar */
-button:focus,
-button:active {
-    background-color: #64B5F6; /* Mantém a cor original */
-    color: #FFFFFF;
-}
-
-/* Estilo para hover e clique nos botões */
-button:hover,
-button:focus-visible {
-    background-color: #64B5F6;
-    color: #FFFFFF;
-}
-
-/* Itens do submenu */
-.dropdown-item {
-    color: #FFFFFF;
-}
-
-/* Hover e Foco para itens do submenu */
-.dropdown-item:hover,
-.dropdown-item:focus {
-    background-color: #64B5F6;
-    color: #555;
-}
-
-button i {
-    transition: transform 0.3s ease;
-}
-
-.fundo_{
-	background-color: #64B5F6;
-	color: #FFFFFF;
 }
 
 .section-header {
-        font-size: 2rem;
-        color: #333;
-        font-weight: bold;
-        margin-top: 50px;
-    }
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    margin-top: 50px;
+}
 
-    .section-content p {
-        font-size: 1.1rem;
-        color: #555;
-        line-height: 1.6;
-        margin-top: 20px;
-    }
+.section-content p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
+    margin-top: 20px;
+}
 
-    .mode-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
+.mode-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-    .mode-card:hover {
-        transform: scale(1.05); /* Expande o card ao passar o mouse */
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
+.mode-card:hover {
+    transform: scale(1.05); /* Expande o card ao passar o mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
 
-    .mode-card img {
-        object-fit: cover;
-        height: 100%;
-    }
+.mode-card img {
+    object-fit: cover;
+    height: 100%;
+}
 
-    .card-body h5 {
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: #333;
-    }
+.card-body h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
 
-    .card-body p {
-        font-size: 1rem;
-        color: #666;
-    }
+.card-body p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
 
-    .lead {
-        font-size: 1.25rem;
-        font-weight: 300;
-        color: #444;
-    }
+.lead {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #444;
+}
 
-.navbar-custom {
-            background-color: transparent;
-            transition: background-color 0.3s;
-        }
+/* Textos de "Sistema de Troféus / Ranqueado / Classificação" */
+#trofeus-rankeado p {
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.7;
+    color: #444;
+}
 
-        .navbar-custom.scrolled {
-            background-color: #64B5F6 !important;
-        }
+html[data-bs-theme="dark"] #trofeus-rankeado p {
+    color: var(--cor-texto);
+}
 
-        .tamanhoimagem {
-            width: 70px;
-            height: 70px;
-        }
+/* Tabela do ranking, no mesmo azul do resto do site */
+#trofeus-rankeado .table thead th {
+    background-color: var(--cor-destaque);
+    color: var(--cor-branco);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+}
 
-        .card-custom {
-            margin-bottom: 20px;
-            border-radius: 0.5rem;
-        }
+#trofeus-rankeado .table {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
 
-        .card-header-custom {
-            background-color: #64B5F6;
-            color: #fff;
-            font-weight: bold;
-        }
+#trofeus-rankeado .table td,
+#trofeus-rankeado .table th {
+    font-family: 'Nunito', sans-serif;
+}
 
-        .card-body-custom {
-            background-color: #ffffff;
-            color: #333;
-        }
+.card-custom {
+    margin-bottom: 20px;
+    border-radius: 0.5rem;
+}
 
-        .timeline-card {
-            margin-top: 30px;
-            background-color: #FFFFFF;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+.card-header-custom {
+    background-color: #64B5F6;
+    color: #fff;
+    font-weight: bold;
+}
 
-        .timeline-card .timeline-heading {
-            background-color: #FFEB3B;
-            color: #333;
-            padding: 10px;
-            font-size: 18px;
-        }
+.card-body-custom {
+    background-color: #ffffff;
+    color: #333;
+}
 
-        .timeline-card .timeline-body {
-            padding: 15px;
-            font-size: 16px;
-        }
+html[data-bs-theme="dark"] .card-body-custom {
+    background-color: #1b2836;
+    color: var(--cor-texto);
+}
 
-        .footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
+.timeline-card {
+    margin-top: 30px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-        .modal-content {
-            background-color: #BBDEFB;
-        }
+.timeline-card .timeline-heading {
+    background-color: #FFEB3B;
+    color: #333;
+    padding: 10px;
+    font-size: 18px;
+}
 
+.timeline-card .timeline-body {
+    padding: 15px;
+    font-size: 16px;
+}
 
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
 
+.modal-content {
+    background-color: #BBDEFB;
+}
 
+/* O card do banner principal tem fundo azul claro fixo no HTML — precisa
+   de !important pra vencer o style="" inline no tema escuro. */
+html[data-bs-theme="dark"] .hero-card {
+    background-color: #1b2836 !important;
+}
 
-        
-
-      
+/* Tema escuro: esses textos tinham cor escura fixa (pensada só pro tema
+   claro), então ficavam ilegíveis com o fundo escuro. Os cards de
+   "Componentes do jogo" (.card-body-custom) mantêm fundo branco fixo em
+   qualquer tema, então o texto deles fica de fora dessa troca. */
+html[data-bs-theme="dark"] .section-header,
+html[data-bs-theme="dark"] .section-content p,
+html[data-bs-theme="dark"] .lead,
+html[data-bs-theme="dark"] .card-body:not(.card-body-custom) h5,
+html[data-bs-theme="dark"] .card-body:not(.card-body-custom) p {
+    color: var(--cor-texto);
+}

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Brast: site sobre Brawl Stars com informações sobre o jogo, componentes, modos de batalha e o sistema de troféus e ranqueado.">
+	<link rel="icon" type="image/png" href="https://static.vecteezy.com/system/resources/previews/027/127/558/large_2x/brawl-stars-logo-brawl-stars-icon-transparent-free-png.png">
 	<title>Brast</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/index.css">
-<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha384-PPIZEGYM1v8zp5Py7UjFb79S58UeqCL9pYVnVPURKEqvioPROaVAJKKLzvH2rDnI" crossorigin="anonymous" referrerpolicy="no-referrer">
 
 </head>
 <body >	
@@ -18,13 +22,16 @@
         <div class="container-fluid r justify-content-start">
             <!-- Logo -->
             <a class="navbar-brand" href="index.html">
-                <img src="https://static.vecteezy.com/system/resources/previews/027/127/558/large_2x/brawl-stars-logo-brawl-stars-icon-transparent-free-png.png" class="tamanhoimagem" alt="Logo">
+                <img src="https://static.vecteezy.com/system/resources/previews/027/127/558/large_2x/brawl-stars-logo-brawl-stars-icon-transparent-free-png.png" class="tamanhoimagem" alt="Logo" width="70" height="70">
             </a>
 
             <!-- Texto Centralizado "Brast" -->
             <span class="navbar-text mx-auto d-none d-lg-block">
                 <Center>Brast</Center>
             </span>
+
+            <!-- Botão de tema claro/escuro -->
+            <button id="btnTema" class="btn-tema" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">🌙</button>
 
             <!-- Botão Toggler -->
             <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
@@ -35,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link pagina-atual" href="index.html" aria-current="page">Home</a>
                     </li>
 
                     <!-- Submenu Visuais -->
@@ -44,39 +51,24 @@
                             <i class="fas fa-chevron-down"></i> <!-- Ícone de seta -->
                         </button>
                         <ul class="dropdown-menu dropdown-horizontal" id="visuaisMenu">
-                        	<li><a class="dropdown-item" href="index2.html#BrawlerDoDia">Brawler do dia</a></li>
+                        	<li><a class="dropdown-item" href="visuais.html#BrawlerDoDia">Brawler do dia</a></li>
                             <li>
                                 <button class="dropdown-item dropdown-toggle" id="raridadeButton">Raridade
                                     
                                 </button>
                                 <ul class="dropdown-menu dropdown-horizontal" id="raridadeMenu">
-                                    <li><a class="dropdown-item" href="index2.html#Raro">Raro</a></li>
-                                    <li><a class="dropdown-item" href="index2.html#Super-Raro">Super-Raro</a></li>
-                                    <li><a class="dropdown-item" href="index2.html#Epico">Epico</a></li>
-                                    <li><a class="dropdown-item" href="index2.html#Mitico">Mitico</a></li>
-                                    <li><a class="dropdown-item" href="index2.html#Lendario">Lendario</a></li>
+                                    <li><a class="dropdown-item" href="visuais.html#Raro">Raro</a></li>
+                                    <li><a class="dropdown-item" href="visuais.html#Super-Raro">Super-Raro</a></li>
+                                    <li><a class="dropdown-item" href="visuais.html#Epico">Epico</a></li>
+                                    <li><a class="dropdown-item" href="visuais.html#Mitico">Mitico</a></li>
+                                    <li><a class="dropdown-item" href="visuais.html#Lendario">Lendario</a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="index2.html#Comparação de Brawlers">Comparação de Brawlers</a></li>
+                            <li><a class="dropdown-item" href="visuais.html#Comparação de Brawlers">Comparação de Brawlers</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index3.html">Recursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index3.html">Recursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index3.html">Recursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index3.html">Recursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index3.html">Recursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index3.html">Recursos</a>
+                        <a class="nav-link" href="recursos.html">Recursos</a>
                     </li>
                   
                 </ul>
@@ -86,18 +78,18 @@
 
 		<!-- Termino do Menu!-->
 
-	<div style="margin-top: 10%;"></div>
+	<div class="espaco-10"></div>
 
 		<!-- Inicio do Cabeçalho!-->
 
 
     <div class="container mt-5">
-        <div class="card mb-4 mx-auto shadow-lg" style="max-width: 170%; border: none; border-radius: 20px; background-color: #BBDEFB;">
+        <div class="card hero-card mb-4 mx-auto shadow-lg" style="max-width: 170%; border: none; border-radius: 20px; background-color: #BBDEFB;">
             <div class="row g-0 align-items-center">
                 <!-- Imagem com efeito parallax -->
                 <div class="col-lg-9">
                     <div>
-                        <img src="https://esports.eldesmarque.com/wp-content/uploads/2021/03/Brawl-Stars-like-a-girl-8M.jpg" class="img-fluid rounded-start parallax-img" alt="Brawl Stars">
+                        <img src="https://static.wikia.nocookie.net/brawlstars/images/3/34/Brawl_Wallpaper.png/revision/latest?cb=20170621183558" class="img-fluid rounded-start parallax-img" alt="Brawl Stars" width="3840" height="2160">
                     </div>
                 </div>
 
@@ -112,12 +104,12 @@
         </div>
     </div>
 
-    <div style="margin-top: 9%;"></div>
+    <div class="espaco-9"></div>
 
     <section id="modos" class="container mt-5">
         <div class="row">
 
-            <h2 class="section-header text-center">Componentes do jogo</h2><div style="margin-top: 5%;"></div>
+            <h2 class="section-header text-center">Componentes do jogo</h2><div class="espaco-5"></div>
             <section class="container-fluid text-center">
                 <div class="row row-cols-1  row-cols-lg-2 g-4 m-auto" style="width: 100%;">
 
@@ -127,7 +119,7 @@
                             <div class="card-header card-header-custom">Acessorio</div>
                             <div class="row g-0">
                                 <div class="col-md-2">
-                                    <img src="img/Acessoriocolt.png" class="img-fluid rounded-start" alt="...">
+                                    <img loading="lazy" src="img/Acessoriocolt.png" class="img-fluid rounded-start" alt="Acessório do Colt" width="1043" height="1061">
                                 </div>
                                 <div class="col-md-10">
                                     <div class="card-body card-body-custom">
@@ -143,7 +135,7 @@
                             <div class="card-header card-header-custom">Poder de estrela</div>
                             <div class="row g-0">
                                 <div class="col-md-2">
-                                    <img src="img/Poderdeestrelacolt.png" class="img-fluid rounded-start" alt="...">
+                                    <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/3/3d/SP-Colt1.png/revision/latest/scale-to-width-down/64?cb=20211104001845" class="img-fluid rounded-start" alt="Poder de Estrela do Colt">
                                 </div>
                                 <div class="col-md-10">
                                     <div class="card-body card-body-custom">
@@ -159,7 +151,7 @@
                             <div class="card-header card-header-custom">Engrenagem</div>
                             <div class="row g-0">
                                 <div class="col-md-2">
-                                    <img src="img/Engrenagem.png" class="img-fluid rounded-start" alt="..." style="width: 30em;">
+                                    <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/5/50/DamageGear.png/revision/latest/scale-to-width-down/65?cb=20230213121500" class="img-fluid rounded-start" alt="Engrenagem" style="width: 30em;">
                                 </div>
                                 <div class="col-md-10">
                                     <div class="card-body card-body-custom">
@@ -177,7 +169,7 @@
                             <div class="card-header fundo_">Hypercarga</div>
                             <div class="row g-0">
                                 <div class="col-md-2">
-                                    <img src="img/Hypercargacolt.png" class="img-fluid rounded-start" alt="...">
+                                    <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/7/74/Colt-Hypercharge.png/revision/latest/scale-to-width-down/64?cb=20230908113823" class="img-fluid rounded-start" alt="Hypercarga do Colt">
                                 </div>
                                 <div class="col-md-10">
                                     <div class="card-body card-body-custom">
@@ -195,13 +187,13 @@
     </section>
 
 
-<div style="margin-top: 10%;"></div>
+<div class="espaco-10"></div>
 
     
 
 
     <!-- Modos de Jogo -->
-    <section id="modos" class="container mt-5">
+    <section id="modos-jogo" class="container mt-5">
     <h2 class="section-header text-center mb-4">Modos de Jogo</h2>
     <div class="section-content text-center mb-4">
         <p class="lead">Brawl Stars oferece diversos modos de jogo que desafiam os jogadores a se adaptarem constantemente. Cada modo traz novas mecânicas, tornando o jogo mais dinâmico e oferecendo diversas formas de competir.</p>
@@ -216,7 +208,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-6">
-                                <img src="img/Superpraia.png" class="img-fluid rounded-start" alt="..." style="height: 107%;">
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/4/47/Back_Pocket-Map.png/revision/latest?cb=20250620055538" class="img-fluid rounded-start" alt="Mapa Super Praia - Fute Brawl 3v3" style="height: 107%;">
                             </div>
                             <div class="col-md-6">
                                 <div class="card-body">
@@ -232,7 +224,7 @@
                     <div class="card h-100" >
                         <div class="row g-0">
                             <div class="col-md-6">
-                                <img src="img/Minarochosa.png" class="img-fluid rounded-start" alt="..." style="height: 100%;">
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/a/a0/Acute_Angle-Map.png/revision/latest?cb=20240907081718" class="img-fluid rounded-start" alt="Mapa Mina Rochosa - Pique Gema 3v3" style="height: 100%;">
                             </div>
                             <div class="col-md-6">
                                 <div class="card-body">
@@ -248,7 +240,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-6">
-                                <img src="img/Caoscibernetico.png" class="img-fluid rounded-start" alt="..." style="height: 100%;"> 
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/e/e1/Robots.png/revision/latest/scale-to-width-down/1200?cb=20201013134520" class="img-fluid rounded-start" alt="Mapa Caos Cibernético" style="height: 100%;"> 
                             </div>
                             <div class="col-md-6">
                                 <div class="card-body">
@@ -264,7 +256,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-6">
-                                <img src="img/Zonasegura.png" class="img-fluid rounded-start" alt="..." style="height: 108.8%;">
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/6/67/All_Things_Wicked-Map.png/revision/latest?cb=20260225224227" class="img-fluid rounded-start" alt="Mapa Zona Segura - Roubo" style="height: 108.8%;">
                             </div>
                             <div class="col-md-6">
                                 <div class="card-body">
@@ -280,7 +272,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-6">
-                                <img src="img/Pilaresdaperdicao.png" class="img-fluid rounded-start" alt="..." style="height: 118%;">
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/f/f9/Battered_Battlefield-Map.png/revision/latest?cb=20250215225509" class="img-fluid rounded-start" alt="Mapa Pilares da Perdição - Duelos" style="height: 118%;">
                             </div>
                             <div class="col-md-6">
                                 <div class="card-body">
@@ -296,7 +288,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-6">
-                                <img src="img/Descampado.png" class="img-fluid rounded-start" alt="..." style="height: 107%;">
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/6/6e/A_Ballad_About_Minced_Cutlets-Map.png/revision/latest?cb=20260225231117" class="img-fluid rounded-start" alt="Mapa Descampado - Nocaute" style="height: 107%;">
                             </div>
                             <div class="col-md-6">
                                 <div class="card-body">
@@ -312,7 +304,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-6">
-                                <img src="img/Canalgrande.png" class="img-fluid rounded-start" alt="..." style="height: 118%;">
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/6/69/Alchemy-Map.png/revision/latest/scale-to-width-down/1200?cb=20260831235106" class="img-fluid rounded-start" alt="Mapa Canal Grande - Caça-Estrela" style="height: 118%;">
                             </div>
                             <div class="col-md-6">
                                 <div class="card-body">
@@ -328,7 +320,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-6">
-                                <img src="img/Desafioencantado.png" class="img-fluid rounded-start" alt="..." style="height: 99%;">
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/8/87/Abracadabra-Map.png/revision/latest?cb=20260225230430" class="img-fluid rounded-start" alt="Mapa Desafio Encantado - Zona Estratégica" style="height: 99%;">
                             </div>
                             <div class="col-md-6">
                                 <div class="card-body">
@@ -351,7 +343,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-7">
-                                <img src="img/Extracaoartica.png" class="img-fluid rounded-start" alt="..." style="height: 107.5%;">
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/a/a6/Afterparty-Map.png/revision/latest?cb=20260423205702" class="img-fluid rounded-start" alt="Mapa Extração Ártica - Pique Gema 5v5" style="height: 107.5%;">
                             </div>
                             <div class="col-md-5">
                                 <div class="card-body">
@@ -367,7 +359,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-7">
-                                <img src="img/Ondulacoescongelantes.png" class="img-fluid rounded-start" alt="..." style="height: 99%;">
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/e/e6/Backyard_Bowl-Map.png/revision/latest?cb=20250818024810" class="img-fluid rounded-start" alt="Mapa Ondulações Congelantes - Fute Brawl 5v5" style="height: 99%;">
                             </div>
                             <div class="col-md-5">
                                 <div class="card-body">
@@ -383,7 +375,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-7">
-                                <img src="img/Cidadeemruinas.png" class="img-fluid rounded-start" alt="..." style="height: 99%;">
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/b/b5/Belle%27s_Rock-Map.png/revision/latest/scale-to-width-down/1200?cb=20260830200821" class="img-fluid rounded-start" alt="Mapa Cidade em Ruínas - Nocaute 5v5" style="height: 99%;">
                             </div>
                             <div class="col-md-5">
                                 <div class="card-body">
@@ -399,7 +391,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-7">
-                                <img src="img/Arenadebatalha.png" class="img-fluid rounded-start" alt="..." style="height: 107.5%;">
+                                <img loading="lazy" src="img/Arenadebatalha.png" class="img-fluid rounded-start" alt="Mapa Arena de Batalha - Combate Triplo" width="1900" height="1904" style="height: 107.5%;">
                             </div>
                             <div class="col-md-5">
                                 <div class="card-body">
@@ -415,7 +407,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-7">
-                                <img src="img/Quartetofinal.png" class="img-fluid rounded-start" alt="..." style="height: 99%;">
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/e/e0/Barren_Badlands-Map.png/revision/latest/scale-to-width-down/1200?cb=20250301075514" class="img-fluid rounded-start" alt="Mapa Quarteto Final - Combate Duplo" style="height: 99%;">
                             </div>
                             <div class="col-md-5">
                                 <div class="card-body">
@@ -431,7 +423,7 @@
                     <div class="card h-100">
                         <div class="row g-0">
                             <div class="col-md-7">
-                                <img src="img/Tudoounada.png" class="img-fluid rounded-start" alt="..." style="height: 100%;">
+                                <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/3/3d/Acid_Lakes-Map.png/revision/latest/scale-to-width-down/1200?cb=20260906133440" class="img-fluid rounded-start" alt="Mapa Tudo ou Nada - Combate Solo" style="height: 100%;">
                             </div>
                             <div class="col-md-5">
                                 <div class="card-body">
@@ -450,7 +442,7 @@
     </section>
 
 
-    <div style="margin-top: 10%;"></div>
+    <div class="espaco-10"></div>
     <!-- Seção sobre Troféus e Ranqueado -->
     <section id="trofeus-rankeado" class="container py-5">
         <div class="row">
@@ -468,7 +460,7 @@
                     <p><strong>Ranqueamento e Emparelhamento:</strong> No sistema ranqueado, os jogadores são colocados em partidas com outros jogadores que possuem troféus semelhantes, garantindo um emparelhamento mais justo. Isso ajuda a evitar frustrações causadas por combinações desbalanceadas entre jogadores iniciantes e experientes.</p>
                     <p>Todos os jogadores, após alcançar 1000 troféus com um Brawler, entram no mesmo pool de matchmaking, o que melhora o tempo de espera e promove uma competição mais equilibrada, especialmente para os jogadores de nível mais alto.</p>
                 </div>
-                <div style="margin-top: 8%;"></div>
+                <div class="espaco-8"></div>
                 <!-- Coluna 3: Classificação e Prestígio -->
                 <div >
                     <h3 class="text-center mb-3">Classificação e Prestígio</h3>
@@ -484,7 +476,7 @@
                             <th>Colocação</th>
                             <th>Nome</th>
                             <th>Prestígio</th>
-                            <th><img src="img/Trofeu.png" style="width: 30px;"></th>
+                            <th><img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/d/de/Icon_trophy.png/revision/latest?cb=20190228195334" style="width: 30px;"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -561,64 +553,41 @@
 	
 
 	
-	<div style="margin-top: 6%;"></div>
+	<div class="espaco-6"></div>
 	<nav aria-label="..." >
  		<ul class="pagination Mx-auto text-center d-flex justify-content-center" >
 		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="index.html">1</a></li>
-		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="index2.html">2</a></li>
-		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="index3.html">3</a></li>
+		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="visuais.html">2</a></li>
+		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="recursos.html">3</a></li>
 	  	</ul>
 	</nav>
-<div style="margin-top: 5%;"></div>
+<div class="espaco-5"></div>
 
 		<!-- Termino do Menu!-->
 
+	<!-- Rodapé -->
+	<footer class="rodape">
+		<div class="container">
+			<p class="rodape-titulo">Brast</p>
+			<p class="rodape-aviso">Projeto de fã sobre Brawl Stars, sem afiliação oficial com a Supercell.</p>
+			<ul class="rodape-links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="visuais.html">Visuais</a></li>
+				<li><a href="recursos.html">Recursos</a></li>
+				<li><a href="https://github.com/Felpsmmendes/Brast" target="_blank" rel="noopener">Ver no GitHub</a></li>
+			</ul>
+			<p class="rodape-copyright">&copy; 2026 Brast</p>
+		</div>
+	</footer>
+
+	<!-- Botão Voltar ao topo -->
+	<button id="btnVoltarTopo" class="btn-voltar-topo" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">&uarr;</button>
 
 <!-- Inicio NavBar -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const navbar = document.querySelector('.navbar-custom');
-        const visuaisButton = document.getElementById('visuaisButton');
-        const visuaisMenu = document.getElementById('visuaisMenu');
-        const raridadeButton = document.getElementById('raridadeButton');
-        const raridadeMenu = document.getElementById('raridadeMenu');
-        const raridadeIcon = raridadeButton.querySelector('i'); // Seleciona o ícone da seta
-
-        // Mudança de cor da navbar ao rolar a página
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Abrir/Fechar o menu "Visuais" ao clicar
-        visuaisButton.addEventListener('click', function (e) {
-            e.stopPropagation();
-            visuaisMenu.classList.toggle('show');
-            raridadeMenu.classList.remove('show');
-            // Remove o foco do botão após o clique
-            visuaisButton.blur();
-        });
-
-        // Abrir/Fechar o submenu "Raridade" ao clicar
-        raridadeButton.addEventListener('click', function (e) {
-            e.stopPropagation();
-            raridadeMenu.classList.toggle('show');
-            // Remove o foco do botão após o clique
-            raridadeButton.blur();
-        });
-
-        // Fechar todos os submenus ao clicar fora da navbar
-        document.addEventListener('click', function () {
-            visuaisMenu.classList.remove('show');
-            raridadeMenu.classList.remove('show');
-        });
-    });
-</script>
-
-
+<script src="js/navbar.js"></script>
+<script src="js/tema.js"></script>
+<script src="js/voltar-topo.js"></script>
+<script src="js/imagem-fallback.js"></script>
 <!-- Termino NavBar -->
 
 

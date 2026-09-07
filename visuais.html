@@ -1,100 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça os Brawlers de Brawl Stars por raridade, veja o Brawler do Dia e compare habilidades entre personagens.">
+    <link rel="icon" type="image/png" href="https://static.vecteezy.com/system/resources/previews/027/127/558/large_2x/brawl-stars-logo-brawl-stars-icon-transparent-free-png.png">
     <title>Brast - Brawl Stars Informações</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 	<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha384-PPIZEGYM1v8zp5Py7UjFb79S58UeqCL9pYVnVPURKEqvioPROaVAJKKLzvH2rDnI" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/visuais.css">
 
 </head>
 <body> 
  
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-		<div class="container-fluid">
-			<!-- Logo -->
-			<a class="navbar-brand" href="index.html">
-				<img src="https://static.vecteezy.com/system/resources/previews/027/127/558/large_2x/brawl-stars-logo-brawl-stars-icon-transparent-free-png.png" class="tamanhoimagem" alt="Logo">
-			</a>
+	<!-- Inicio do Menu!-->
 
-			<!-- Texto Centralizado "Brast" -->
-			<span class="navbar-text mx-auto d-none d-lg-block" >
-				Brast
-			</span>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom" >
+        <div class="container-fluid r justify-content-start">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="https://static.vecteezy.com/system/resources/previews/027/127/558/large_2x/brawl-stars-logo-brawl-stars-icon-transparent-free-png.png" class="tamanhoimagem" alt="Logo" width="70" height="70">
+            </a>
 
-			<!-- Botão Toggler -->
-			<button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-				<span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-			</button>
+            <!-- Texto Centralizado "Brast" -->
+            <span class="navbar-text mx-auto d-none d-lg-block">
+                <Center>Brast</Center>
+            </span>
 
-			<!-- Menu colapsável -->
-			<div class="collapse navbar-collapse" id="navbarContent">
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-					<!-- Home -->
-					<li class="nav-item">
-						<a class="nav-link" href="index.html">Home</a>
-					</li>
+            <!-- Botão de tema claro/escuro -->
+            <button id="btnTema" class="btn-tema" type="button" aria-label="Alternar tema claro ou escuro" title="Alternar tema">🌙</button>
 
-					<!-- Visuais -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-							Visuais
-						</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="index2.html#BrawlerDoDia">Brawler do dia</a></li>
+            <!-- Botão Toggler -->
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
 
-							<li class="dropdown-submenu">
-								<a class="dropdown-item dropdown-toggle" href="#">Raridade</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="index2.html#Raro">Raro</a></li>
-									<li><a class="dropdown-item" href="index2.html#Super-Raro">Super-Raro</a></li>
-									<li><a class="dropdown-item" href="index2.html#Epico">Epico</a></li>
-									<li><a class="dropdown-item" href="index2.html#Mitico">Mitico</a></li>
-									<li><a class="dropdown-item" href="index2.html#Lendario">Lendario</a></li>
-								</ul>
-							</li>
+            <!-- Menu colapsável -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
 
-							<li><a class="dropdown-item" href="index2.html#Comparacao">Comparação de Brawlers</a></li>
-						</ul>
-					</li>
+                    <!-- Submenu Visuais -->
+                    <li class="nav-item dropdown">
+                        <button class="nav-link btn btn-link dropdown-toggle pagina-atual" id="visuaisButton" aria-current="page">Visuais
+                            <i class="fas fa-chevron-down"></i> <!-- Ícone de seta -->
+                        </button>
+                        <ul class="dropdown-menu dropdown-horizontal" id="visuaisMenu">
+                        	<li><a class="dropdown-item" href="visuais.html#BrawlerDoDia">Brawler do dia</a></li>
+                            <li>
+                                <button class="dropdown-item dropdown-toggle" id="raridadeButton">Raridade
 
-					<!-- Brawlers -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-							Brawlers
-						</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Todos</a></li>
-							<li><a class="dropdown-item" href="#">Mais fortes</a></li>
-							<li><a class="dropdown-item" href="#">Mais fracos</a></li>
-						</ul>
-					</li>
+                                </button>
+                                <ul class="dropdown-menu dropdown-horizontal" id="raridadeMenu">
+                                    <li><a class="dropdown-item" href="visuais.html#Raro">Raro</a></li>
+                                    <li><a class="dropdown-item" href="visuais.html#Super-Raro">Super-Raro</a></li>
+                                    <li><a class="dropdown-item" href="visuais.html#Epico">Epico</a></li>
+                                    <li><a class="dropdown-item" href="visuais.html#Mitico">Mitico</a></li>
+                                    <li><a class="dropdown-item" href="visuais.html#Lendario">Lendario</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="visuais.html#Comparação de Brawlers">Comparação de Brawlers</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="recursos.html">Recursos</a>
+                    </li>
 
-					<!-- Mapas -->
-					<li class="nav-item">
-						<a class="nav-link" href="#">Mapas</a>
-					</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-					<!-- Modos -->
-					<li class="nav-item">
-						<a class="nav-link" href="#">Modos</a>
-					</li>
-
-					<!-- Tier List -->
-					<li class="nav-item">
-						<a class="nav-link" href="#">Tier List</a>
-					</li>
-
-					<!-- Sobre -->
-					<li class="nav-item">
-						<a class="nav-link" href="#">Sobre</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+		<!-- Termino do Menu!-->
 
 	<div id="BrawlerDoDia"></div>
 
@@ -105,7 +87,7 @@
 		<div id="brawlerOfTheDay" class="card shadow-lg border-0">
 			<div class="row g-0">
 				<div class="col-md-4">
-					<img id="brawlerImage" src="img/CorvoDia.png" class="img-fluid rounded-start" alt="Brawler do Dia">
+					<img loading="lazy" id="brawlerImage" src="https://static.wikia.nocookie.net/brawlstars/images/9/96/Corvo.png/revision/latest?cb=20200925134739&path-prefix=pt" class="img-fluid rounded-start" alt="Brawler do Dia">
 				</div>
 				<div class="col-md-8">
 					<div class="card-body d-flex flex-column justify-content-between" style="line-height: 1.5;">
@@ -163,18 +145,18 @@
 			</div>
 		</div>
 
-	<div style="margin-top: 5%;"></div>
+	<div class="espaco-5"></div>
 
     <!-- Continue com outras raridades, seguindo o mesmo estilo -->
 
 
-	<div style="margin-top: 5%;"></div>  
+	<div class="espaco-5"></div>  
 
 	<div><h1>Raro</h1></div>
 
 	<div id="Raro"></div>
 
-	<div style="margin-top: 3%;"></div>
+	<div class="espaco-3"></div>
 
 	<section class="container-fluid text-center caixa ">
 		<div>
@@ -186,7 +168,7 @@
 				        <h5 class="card-title">Nita</h5>
 				        <p class="card-text">Destruidor</p>
 				      	</div>
-			      		<img src="img/Nita.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalNita">
+			      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/5/58/Nita.png/revision/latest/scale-to-width-down/1200?cb=20200801193130&path-prefix=pt" class="card-img-top img" alt="Nita" data-bs-toggle="modal" data-bs-target="#modalNita">
 
 			      		<!-- Modal Brock -->
 			      		<div class="modal fade" id="modalNita" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalNitaLabel" aria-hidden="true">
@@ -198,11 +180,8 @@
 				            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				          </div>
 				          <div class="modal-body">
-				            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-				            <video autoplay muted loop class="img-fluid">
-				              <source src="img/Nita_.mp4" type="video/mp4">
-				              Seu navegador não suporta o vídeo.
-				            </video>
+				            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/5/58/Nita.png/revision/latest/scale-to-width-down/1200?cb=20200801193130&path-prefix=pt" class="img-fluid" alt="Nita - Animação de Vitória">
 				          </div>
 				          <div class="modal-footer">
 				            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -211,14 +190,14 @@
 				        </div>
 				      </div>
 				    </div>
-			      		<div class="accordion" id="accordionExample">
+			      		<div class="accordion" id="accordionExample1">
 						  	<div class="accordion-item">
 						    	<h2 class="accordion-header">
 						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
 						       	 		Veja mais
 						      		</button>
 						    	</h2>
-						    	<div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+						    	<div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">
 						      		<div class="accordion-body">
 						        		Nita é feroz e nunca desiste de uma luta. O urso de pelúcia que ela usa como gorro dá um dica aos adversários: não se aproxime do urso!
 						      		</div>
@@ -228,13 +207,13 @@
 			    	</div>
 			  	</div>
 
-			  	<div class="col" id="Raro">
+			  	<div class="col">
 			    	<div class="card raro" style="width: 16em;" >
 			      		<div class="card-body">
 				        <h5 class="card-title">Brock</h5>
 				        <p class="card-text">Tiro Preciso</p>
 				      	</div>
-			      		<img src="img/Brock.png" class="card-img-top img" alt="..." id="2B" data-bs-toggle="modal" data-bs-target="#modalBrock">
+			      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/9/97/Brock.png/revision/latest?cb=20240715194809&path-prefix=pt" class="card-img-top img" alt="Brock" data-bs-toggle="modal" data-bs-target="#modalBrock">
 
 			      		<!-- Modal Brock -->
 					    <div class="modal fade" id="modalBrock" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalBrockLabel" aria-hidden="true">
@@ -246,11 +225,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Brock_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/9/97/Brock.png/revision/latest?cb=20240715194809&path-prefix=pt" class="img-fluid" alt="Brock - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -260,14 +236,14 @@
 					    </div>
 
 					     <!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
+			      		<div class="accordion" id="accordionExample2">
 						  	<div class="accordion-item">
 						    	<h2 class="accordion-header">
 						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
 						        		Veja mais
 						      		</button>
 						    	</h2>
-						    	<div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+						    	<div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
 						      		<div class="accordion-body">
 						        		Quem vê o Brock todo estilosão gritando ao jogar videogame(seu hobby preferido) nao acredita que o cara é introvertido. É melhor não dar mole, pois ele vai fazer tudo para ganhar!
 						      		</div>
@@ -283,7 +259,7 @@
 				        <h5 class="card-title">Colt</h5>
 				        <p class="card-text">Destruidor</p>
 				      	</div>
-			      		<img src="img/Colt.png" class="card-img-top img" alt="..." id="2B" data-bs-toggle="modal" data-bs-target="#modalColt">
+			      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/2/2a/Colt.png/revision/latest?cb=20200924192843&path-prefix=pt" class="card-img-top img" alt="Colt" data-bs-toggle="modal" data-bs-target="#modalColt">
 
 			      		<!-- Modal Colt -->
 					    <div class="modal fade" id="modalColt" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalColtLabel" aria-hidden="true">
@@ -295,11 +271,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Colt_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/2/2a/Colt.png/revision/latest?cb=20200924192843&path-prefix=pt" class="img-fluid" alt="Colt - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -309,14 +282,14 @@
 					    </div>
 
 					    <!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
+			      		<div class="accordion" id="accordionExample3">
 						  	<div class="accordion-item">
 						    	<h2 class="accordion-header">
 						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
 						        		Veja mais
 						      		</button>
 						    	</h2>
-						    	<div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+						    	<div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionExample3">
 						      		<div class="accordion-body">
 						        	Todo mundo que visita o Starr Park quer ver o colt de perto, pois o cara é boa-pinta, carismático e cheio de truques com suas pistolas. A única que nao entende o sucesso dele é a Shelly.
 						      		</div>
@@ -332,7 +305,7 @@
 				        <h5 class="card-title">Bull</h5>
 				        <p class="card-text">Tanque</p>
 				      	</div>
-			      		<img src="img/Bull.png" class="card-img-top img" alt="..." id="2B" data-bs-toggle="modal" data-bs-target="#modalBull">
+			      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/7/7a/Bull.png/revision/latest?cb=20200924193650&path-prefix=pt" class="card-img-top img" alt="Bull" data-bs-toggle="modal" data-bs-target="#modalBull">
 
 			      		<!-- Modal Bull -->
 					    <div class="modal fade" id="modalBull" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalBullLabel" aria-hidden="true">
@@ -344,11 +317,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Bull_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/7/7a/Bull.png/revision/latest?cb=20200924193650&path-prefix=pt" class="img-fluid" alt="Bull - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -358,14 +328,14 @@
 					    </div>
 
 			      		<!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
+			      		<div class="accordion" id="accordionExample4">
 							<div class="accordion-item">
 							    <h2 class="accordion-header">
 							      	<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
 							       		Veja mais
 							      	</button>
 							    </h2>
-							    <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+							    <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#accordionExample4">
 							      	<div class="accordion-body">
 							        	Como todo milenial, Bull já não é o touro selvagem de antes, é meio careta e tem até horário para dormir. Mas cuidado! Ele ainda faz picadinho de quem pisa na bola.
 							      	</div>
@@ -381,7 +351,7 @@
 				        <h5 class="card-title">El Primo</h5>
 				        <p class="card-text">Tanque</p>
 				      	</div>
-			      		<img src="img/Elprimo.png" class="card-img-top img" alt="..." id="2B" data-bs-toggle="modal" data-bs-target="#modalElprimo">
+			      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/b/b6/El_Primo.png/revision/latest?cb=20240601121936&path-prefix=pt" class="card-img-top img" alt="El Primo" data-bs-toggle="modal" data-bs-target="#modalElprimo">
 
 			      		<!-- Modal Elprimo -->
 					    <div class="modal fade" id="modalElprimo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalElprimoLabel" aria-hidden="true">
@@ -394,10 +364,7 @@
 					          		</div>
 					          		<div class="modal-body">
 							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/ElPrimo_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/b/b6/El_Primo.png/revision/latest?cb=20240601121936&path-prefix=pt" class="img-fluid" alt="El Primo - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -407,14 +374,14 @@
 					    </div>
 
 			      		<!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
+			      		<div class="accordion" id="accordionExample5">
 						  	<div class="accordion-item">
 						    	<h2 class="accordion-header">
 						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
 						        		Veja mais
 						      		</button>
 						    	</h2>
-						    	<div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+						    	<div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#accordionExample5">
 						      		<div class="accordion-body">
 						        		El Primo gosta de se exibir no ringue e nasceu para isso. Todo mundo delira quando ele entra em cena. Alguns de alegria, outro de dor mesmo...
 						      		</div>
@@ -430,7 +397,7 @@
 				        <h5 class="card-title">Barley</h5>
 				        <p class="card-text">Detonador</p>
 				      	</div>
-			      		<img src="img/Barley.png" class="card-img-top img" alt="..." id="2B" data-bs-toggle="modal" data-bs-target="#modalBarley"> 
+			      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/d/df/Barley.png/revision/latest?cb=20200924202328&path-prefix=pt" class="card-img-top img" alt="Barley" data-bs-toggle="modal" data-bs-target="#modalBarley"> 
 
 			      		<!-- Modal Barley -->
 					    <div class="modal fade" id="modalBarley" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalBarleyLabel" aria-hidden="true">
@@ -456,14 +423,14 @@
 					    </div>
 
 			      		<!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
+			      		<div class="accordion" id="accordionExample6">
 						  	<div class="accordion-item">
 						    	<h2 class="accordion-header">
 						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
 						        		Veja mais
 						      		</button>
 						    	</h2>
-						    	<div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+						    	<div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#accordionExample6">
 						      		<div class="accordion-body">
 						        	Um barman-robô projetado para preparar beibdas e entreter clietes, Barley faz questão de deixar o bar sempre brilhando. Se precisar, ele usa os baderneiros como pano de chão.
 						      		</div>
@@ -479,7 +446,7 @@
 				        <h5 class="card-title">Poco</h5>
 				        <p class="card-text">Suporte</p>
 				      	</div>
-			      		<img src="img/Poco.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalPoco">
+			      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/b/b8/Poco.png/revision/latest?cb=20200924202917&path-prefix=pt" class="card-img-top img" alt="Poco" data-bs-toggle="modal" data-bs-target="#modalPoco">
 
 			      		<!-- Modal Poco -->
 					    <div class="modal fade" id="modalPoco" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalPocoLabel" aria-hidden="true">
@@ -491,11 +458,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Poco_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/b/b8/Poco.png/revision/latest?cb=20200924202917&path-prefix=pt" class="img-fluid" alt="Poco - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -505,14 +469,14 @@
 					    </div>
 
 			      		<!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
+			      		<div class="accordion" id="accordionExample7">
 						  	<div class="accordion-item">
 						    	<h2 class="accordion-header">
 						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
 						        		Veja mais
 						      		</button>
 						    	</h2>
-						    	<div id="collapse7" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+						    	<div id="collapse7" class="accordion-collapse collapse" data-bs-parent="#accordionExample7">
 						     		<div class="accordion-body">
 						       		Poco acredita no poder curativo da música e, por isso esta sempre tocando(mesmo quando pedem para ele parar).
 						       		</div>
@@ -528,7 +492,7 @@
 			        	<h5 class="card-title">Rosa</h5>
 			        	<p class="card-text">Tanque</p>
 			      		</div>
-			      		<img src="img/Rosa.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalRosa">
+			      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/8/86/Rosa.png/revision/latest?cb=20200924203210&path-prefix=pt" class="card-img-top img" alt="Rosa" data-bs-toggle="modal" data-bs-target="#modalRosa">
 
 			      		<!-- Modal Rosa -->
 					    <div class="modal fade" id="modalRosa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalRosaLabel" aria-hidden="true">
@@ -540,11 +504,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Rosa_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/8/86/Rosa.png/revision/latest?cb=20200924203210&path-prefix=pt" class="img-fluid" alt="Rosa - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -554,14 +515,14 @@
 					    </div>
 
 			      		<!-- Accordion (se necessário) -->
-			      		<div class="accordion" id="accordionExample">
+			      		<div class="accordion" id="accordionExample8">
 						  	<div class="accordion-item">
 						    	<h2 class="accordion-header">
 						      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
 						        		Veja mais
 						      		</button>
 						    	</h2>
-						    	<div id="collapse8" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+						    	<div id="collapse8" class="accordion-collapse collapse" data-bs-parent="#accordionExample8">
 						      		<div class="accordion-body">
 						        		Rosa é uma botânica muito ligada às plantas. Ela também é boxeadora e não vacila em plantar a mão na cara de quem a desobedecer!
 						      		</div>
@@ -575,13 +536,13 @@
 		</div>
 	</section>
 	
-	<div style="margin-top: 5%;"></div>
+	<div class="espaco-5"></div>
 
 	<div><h1>Super-Raro</h1></div>
 
 	<br id="Super-Raro">
 
-	<div style="margin-top: 3%;"></div>
+	<div class="espaco-3"></div>
 
 	<section class="container-fluid text-center caixa ">
 		<div class="row row-cols-1 row-cols-md-4 g-4 m-auto" style="width: 95%; padding-left: 16.2%; padding-right: 15%;">
@@ -592,7 +553,7 @@
 			        <h5 class="card-title">Carl</h5>
 			        <p class="card-text">Destruidor</p>
 			      	</div>
-		      		<img src="img/Carl.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalCarl" >
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/7/71/Carl.png/revision/latest?cb=20200924211030&path-prefix=pt" class="card-img-top img" alt="Carl" data-bs-toggle="modal" data-bs-target="#modalCarl" >
 
 		      		<!-- Modal Carl -->
 					    <div class="modal fade" id="modalCarl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalCarlLabel" aria-hidden="true">
@@ -604,11 +565,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Carl_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/7/71/Carl.png/revision/latest?cb=20200924211030&path-prefix=pt" class="img-fluid" alt="Carl - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -618,14 +576,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample9">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse9" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse9" class="accordion-collapse collapse" data-bs-parent="#accordionExample9">
 					      		<div class="accordion-body">
 					        		Carl é um robô-minerador fascinado por pedra... Pedras não, rochas. Se não quiser que ele vire uma matraca, é melhor nem falar de gemas, ou serão horas de palestrinha sobre os efeitos delas.
 					      		</div>
@@ -641,7 +599,7 @@
 			        <h5 class="card-title">Jacky</h5>
 			        <p class="card-text">Tanque</p>
 			      	</div>
-		      		<img src="img/Jacky.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalJacky">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/8/87/Jacky.png/revision/latest?cb=20200924212453&path-prefix=pt" class="card-img-top img" alt="Jacky" data-bs-toggle="modal" data-bs-target="#modalJacky">
 
 		      		<!-- Modal Jacky -->
 					    <div class="modal fade" id="modalJacky" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalJackyLabel" aria-hidden="true">
@@ -653,11 +611,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Jacky_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/8/87/Jacky.png/revision/latest?cb=20200924212453&path-prefix=pt" class="img-fluid" alt="Jacky - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -667,14 +622,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample10">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse10" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse10" class="accordion-collapse collapse" data-bs-parent="#accordionExample10">
 					      		<div class="accordion-body">
 					        		Jacky é uma operária de boca um pouco suja na hora de falar sobre o trabalho. É uma sorte do @&*$#% que os palavrões sejam abafados pelo barulho da sua britadeira.
 					      		</div>
@@ -690,7 +645,7 @@
 			        <h5 class="card-title">Rico</h5>
 			        <p class="card-text">Destruidor</p>
 			      	</div>
-		      		<img src="img/Rico.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalRico">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/3/3e/Rico.png/revision/latest?cb=20200924203542&path-prefix=pt" class="card-img-top img" alt="Rico" data-bs-toggle="modal" data-bs-target="#modalRico">
 
 		      		<!-- Modal Rico -->
 					    <div class="modal fade" id="modalRico" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalRicoLabel" aria-hidden="true">
@@ -702,11 +657,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Rico_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/3/3e/Rico.png/revision/latest?cb=20200924203542&path-prefix=pt" class="img-fluid" alt="Rico - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -716,14 +668,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample11">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse11" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse11" class="accordion-collapse collapse" data-bs-parent="#accordionExample11">
 					      		<div class="accordion-body">
 					        		O quê? Máquinas de chiclete? Claro que não... O Rico é um caçador espacial de recompensas que persegue os criminosos mais procurados da galáxia!
 					      		</div>
@@ -739,7 +691,7 @@
 			        <h5 class="card-title">Gus</h5>
 			        <p class="card-text">Suporte</p>
 			      	</div>
-		      		<img src="img/Gus.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalGus">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/5/52/Gus.png/revision/latest?cb=20220901190102&path-prefix=pt" class="card-img-top img" alt="Gus" data-bs-toggle="modal" data-bs-target="#modalGus">
 
 		      		<!-- Modal Gus -->
 					    <div class="modal fade" id="modalGus" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalGusLabel" aria-hidden="true">
@@ -751,11 +703,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Gus_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/5/52/Gus.png/revision/latest?cb=20220901190102&path-prefix=pt" class="img-fluid" alt="Gus - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -765,14 +714,14 @@
 					    </div>
 
 		  			<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample12">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse12" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse12" class="accordion-collapse collapse" data-bs-parent="#accordionExample12">
 					      		<div class="accordion-body">
 					        		Gus se parece demais com uma daquelas crianças fantasmas de filmes, sabe? É tão parecido que muita gente se assusta quando ele passa. Ainda bem que ele nem liga, pois ele ama o sobrenatural!
 					      		</div>
@@ -788,7 +737,7 @@
 			        <h5 class="card-title">Darryl</h5>
 			        <p class="card-text">Tanque</p>
 			      	</div>
-		      		<img src="img/Darryl.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalDarryl">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/3/3f/Darryl.png/revision/latest?cb=20200924204244&path-prefix=pt" class="card-img-top img" alt="Darryl" data-bs-toggle="modal" data-bs-target="#modalDarryl">
 
 		      		<!-- Modal Darryl -->
 					    <div class="modal fade" id="modalDarryl" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDarrylLabel" aria-hidden="true">
@@ -800,11 +749,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Darryl_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/3/3f/Darryl.png/revision/latest?cb=20200924204244&path-prefix=pt" class="img-fluid" alt="Darryl - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -814,14 +760,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample13">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse13" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse13" class="accordion-collapse collapse" data-bs-parent="#accordionExample13">
 					      		<div class="accordion-body">
 					        		Darryl virou capitão para fugir do trabalho pesado, mas agora é obrigado a defender o navio. Parece que o tiro saiu pela culatra...
 					      		</div>
@@ -837,7 +783,7 @@
 			        <h5 class="card-title">Jessie</h5>
 			        <p class="card-text">Controle</p>
 			      	</div>
-		      		<img src="img/Jessie.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalJessie">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/7/7a/Jessie.png/revision/latest?cb=20211107002518&path-prefix=pt" class="card-img-top img" alt="Jessie" data-bs-toggle="modal" data-bs-target="#modalJessie">
 
 		      		<!-- Modal Jessie -->
 					    <div class="modal fade" id="modalJessie" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalJessieLabel" aria-hidden="true">
@@ -849,11 +795,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Jessie_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/7/7a/Jessie.png/revision/latest?cb=20211107002518&path-prefix=pt" class="img-fluid" alt="Jessie - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -863,14 +806,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample14">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14" aria-expanded="false" aria-controls="collapse14">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse14" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse14" class="accordion-collapse collapse" data-bs-parent="#accordionExample14">
 					      		<div class="accordion-body">
 					        		Apesar de ser um verdadeiro prodígio e construir armas com sucata, Jessie não passa de uma garotinha aos olhos de sua mãe, Pam.
 					      		</div>
@@ -886,7 +829,7 @@
 			        <h5 class="card-title">Tick</h5>
 			        <p class="card-text">Detonador</p>
 			      	</div>
-		      		<img src="img/Tick.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalTick">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/2/29/Tick.png/revision/latest?cb=20200924200647&path-prefix=pt" class="card-img-top img" alt="Tick" data-bs-toggle="modal" data-bs-target="#modalTick">
 
 		      		<!-- Modal Tick -->
 					    <div class="modal fade" id="modalTick" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalTickLabel" aria-hidden="true">
@@ -898,11 +841,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Tick_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/2/29/Tick.png/revision/latest?cb=20200924200647&path-prefix=pt" class="img-fluid" alt="Tick - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -912,14 +852,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample15">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse15" aria-expanded="false" aria-controls="collapse15">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse15" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse15" class="accordion-collapse collapse" data-bs-parent="#accordionExample15">
 					      		<div class="accordion-body">
 					        		Tick segue Penny por tudo como um cachorrinho. Ele não colabora muito com os planos e apenas explode as coisas por perto, mas isso já é uma ajuda e tanto!
 					      		</div>
@@ -935,7 +875,7 @@
 		        	<h5 class="card-title">Dynamike</h5>
 		        	<p class="card-text">Detonador</p>
 		      		</div>
-		      		<img src="img/Dynamike.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalDynamike">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/7/7d/Dynamike.png/revision/latest?cb=20200924195530&path-prefix=pt" class="card-img-top img" alt="Dynamike" data-bs-toggle="modal" data-bs-target="#modalDynamike">
 
 		      		<!-- Modal Dynamike -->
 					    <div class="modal fade" id="modalDynamike" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDynamikeLabel" aria-hidden="true">
@@ -947,11 +887,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Dynamike_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/7/7d/Dynamike.png/revision/latest?cb=20200924195530&path-prefix=pt" class="img-fluid" alt="Dynamike - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -961,14 +898,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample16">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse16" aria-expanded="false" aria-controls="collapse16">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse16" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse16" class="accordion-collapse collapse" data-bs-parent="#accordionExample16">
 					      		<div class="accordion-body">
 					        		Dynamike é um garimpeiro aposentado que, depois de vários anos usando dinamites, ficou obcecado com explosões. Ano-Novo, aniversários, batalhas... tudo é um BOOOM motivo para explodir algo!
 					      		</div>
@@ -981,13 +918,13 @@
 		</div>
 	</section>
 
-	<div style="margin-top: 5%;"></div>
+	<div class="espaco-5"></div>
 
 	<div><h1>Epico</h1></div>
 
 	<br id="Epico">
 
-	<div style="margin-top: 3%;"></div>
+	<div class="espaco-3"></div>
 
 	<section class="container-fluid text-center caixa ">
 		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 m-auto" style="width: 95%; padding-left: 16.2%; padding-right: 15%;">
@@ -998,7 +935,7 @@
 			        <h5 class="card-title">Stu</h5>
 			        <p class="card-text">Algoz</p>
 			      	</div>
-		      		<img src="img/Stu.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalStu" >
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/4/4a/Stu.png/revision/latest/scale-to-width-down/1200?cb=20250219194650&path-prefix=pt" class="card-img-top img" alt="Stu" data-bs-toggle="modal" data-bs-target="#modalStu" >
 
 		      		<!-- Modal Stu -->
 					    <div class="modal fade" id="modalStu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalStuLabel" aria-hidden="true">
@@ -1010,11 +947,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Stu_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/4/4a/Stu.png/revision/latest/scale-to-width-down/1200?cb=20250219194650&path-prefix=pt" class="img-fluid" alt="Stu - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1024,14 +958,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample17">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse17" aria-expanded="false" aria-controls="collapse17">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse17" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse17" class="accordion-collapse collapse" data-bs-parent="#accordionExample17">
 					      		<div class="accordion-body">
 					        		Apesar do pneu estar um pouco bambo e de alguns amassados na lataria por conta de sua longa carreira, Stu ainda é o dublê mais requisitado de todos, graças a suas derrapadas de tirar o fôlego!
 					      		</div>
@@ -1047,7 +981,7 @@
 			        <h5 class="card-title">Emz</h5>
 			        <p class="card-text">Controle</p>
 			      	</div>
-		      		<img src="img/Emz.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalEmz">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/d/d0/Emz.png/revision/latest?cb=20200924201146&path-prefix=pt" class="card-img-top img" alt="Emz" data-bs-toggle="modal" data-bs-target="#modalEmz">
 
 		      		<!-- Modal Barley -->
 					    <div class="modal fade" id="modalEmz" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEmzLabel" aria-hidden="true">
@@ -1059,11 +993,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Emz_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/d/d0/Emz.png/revision/latest?cb=20200924201146&path-prefix=pt" class="img-fluid" alt="Emz - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1073,14 +1004,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample18">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse18" aria-expanded="false" aria-controls="collapse1">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse18" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse18" class="accordion-collapse collapse" data-bs-parent="#accordionExample18">
 					      		<div class="accordion-body">
 					        		Dizem que a influencer Emz também trabalha no necrotério do seu tio Mortis, mas quase não aparece por lá. Ela anda muito ocupada promovendo sua linha de sprays para cabelo na internet. Tudo pom?
 					      		</div>
@@ -1096,7 +1027,7 @@
 			        <h5 class="card-title">Piper</h5>
 			        <p class="card-text">Tiro Preciso</p>
 			      	</div>
-		      		<img src="img/Piper.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalPiper">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/d/d4/Piper.png/revision/latest?cb=20200924213502&path-prefix=pt" class="card-img-top img" alt="Piper" data-bs-toggle="modal" data-bs-target="#modalPiper">
 
 		      		<!-- Modal Piper -->
 				    <div class="modal fade" id="modalPiper" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalPiperLabel" aria-hidden="true">
@@ -1109,11 +1040,8 @@
 				            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				          		</div>
 				          		<div class="modal-body">
-						            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-						            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-						              <source src="img/Piper_.mp4" type="video/mp4">
-						              Seu navegador não suporta o vídeo.
-						            </video>
+						            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/d/d4/Piper.png/revision/latest?cb=20200924213502&path-prefix=pt" class="img-fluid" alt="Piper - Animação de Vitória">
 				          		</div>
 					          	<div class="modal-footer">
 						            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1123,14 +1051,14 @@
 				    </div>
 
 				    <!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample19">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse19" aria-expanded="false" aria-controls="collapse19">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse19" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse19" class="accordion-collapse collapse" data-bs-parent="#accordionExample19">
 					      		<div class="accordion-body">
 					        		O maior sonho da Piper é ser confeiteira para fazer tortas, biscoitos e vários doces. Só não pergunte sobre o seu passado se não quiser acabar no forno.
 					      		</div>
@@ -1146,7 +1074,7 @@
 			        <h5 class="card-title">Gale</h5>
 			        <p class="card-text">Controle</p>
 			      	</div>
-		      		<img src="img/Gale.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalGale">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/f/fd/Gale.png/revision/latest?cb=20200925135833&path-prefix=pt" class="card-img-top img" alt="Gale" data-bs-toggle="modal" data-bs-target="#modalGale">
 
 		      		<!-- Modal Gale -->
 					    <div class="modal fade" id="modalGale" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalGaleLabel" aria-hidden="true">
@@ -1158,11 +1086,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Gale_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/f/fd/Gale.png/revision/latest?cb=20200925135833&path-prefix=pt" class="img-fluid" alt="Gale - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1172,14 +1097,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample20">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse20" aria-expanded="false" aria-controls="collapse20">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse20" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse20" class="accordion-collapse collapse" data-bs-parent="#accordionExample20">
 					      		<div class="accordion-body">
 					        		O trabalho do Gale é usar seu soprador de folhas para limpar os arredores do Hotel Nevado do Mister P. Não se assuste caso veja gente voando, pois ninguém disse que ele deveria parar quando os hóspedes chegassem...
 					      		</div>
@@ -1195,7 +1120,7 @@
 			        <h5 class="card-title">Bibi</h5>
 			        <p class="card-text">Tanque</p>
 			      	</div>
-		      		<img src="img/Bibi.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalBibi">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/c/ca/Bibi.png/revision/latest?cb=20200924220131&path-prefix=pt" class="card-img-top img" alt="Bibi" data-bs-toggle="modal" data-bs-target="#modalBibi">
 
 		      		<!-- Modal Bibi -->
 					    <div class="modal fade" id="modalBibi" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalBibiLabel" aria-hidden="true">
@@ -1207,11 +1132,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Bibi_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/c/ca/Bibi.png/revision/latest?cb=20200924220131&path-prefix=pt" class="img-fluid" alt="Bibi - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1221,14 +1143,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample21">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse21" aria-expanded="false" aria-controls="collapse21">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse21" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse21" class="accordion-collapse collapse" data-bs-parent="#accordionExample21">
 					      		<div class="accordion-body">
 					        		Bibi é uma punh durona com um taco de beisebol e muita atitude. Ela também é meio nerd, mas faz de tudo para esconder, afinal tem uma imagem a zelar!
 					      		</div>
@@ -1244,7 +1166,7 @@
 			        <h5 class="card-title">Belle</h5>
 			        <p class="card-text">Tiro Preciso</p>
 			      	</div>
-		      		<img src="img/Belle.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalBelle">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/5/53/Belle.png/revision/latest?cb=20210413024730&path-prefix=pt" class="card-img-top img" alt="Belle" data-bs-toggle="modal" data-bs-target="#modalBelle">
 
 		      		<!-- Modal Belle -->
 					    <div class="modal fade" id="modalBelle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalBelleLabel" aria-hidden="true">
@@ -1256,11 +1178,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Belle_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/5/53/Belle.png/revision/latest?cb=20210413024730&path-prefix=pt" class="img-fluid" alt="Belle - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1270,14 +1189,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample22">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse22" aria-expanded="false" aria-controls="collapse22">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse22" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse22" class="accordion-collapse collapse" data-bs-parent="#accordionExample22">
 					      		<div class="accordion-body">
 					        		Belle, a líder renomada da Gangue do Braço Dourado, quer mais do que grana. Seu plano é descobrir quem está por trás do Starr Park para acabar com tudo! Muahahaha!
 					      		</div>
@@ -1293,7 +1212,7 @@
 			        <h5 class="card-title">Maisie</h5>
 			        <p class="card-text">Tiro Preciso</p>
 			      	</div>
-		      		<img src="img/Maisie.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalMaisie">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/f/fe/Maisie.png/revision/latest?cb=20260319153028&path-prefix=pt" class="card-img-top img" alt="Maisie" data-bs-toggle="modal" data-bs-target="#modalMaisie">
 
 		      		<!-- Modal Maisie -->
 					    <div class="modal fade" id="modalMaisie" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalMaisieLabel" aria-hidden="true">
@@ -1305,11 +1224,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Maisie_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/f/fe/Maisie.png/revision/latest?cb=20260319153028&path-prefix=pt" class="img-fluid" alt="Maisie - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1319,14 +1235,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample23">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse23" aria-expanded="false" aria-controls="collapse23">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse23" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse23" class="accordion-collapse collapse" data-bs-parent="#accordionExample23">
 					      		<div class="accordion-body">
 					        		Maisie trabalha como chefe de segurança, mas no fundo gosta de situações perigosas. Quando ela está perto, algo perigoso sempre acontece. Será coincidência?
 					      		</div>
@@ -1342,7 +1258,7 @@
 		        	<h5 class="card-title">Colette</h5>
 		        	<p class="card-text">Destruidor</p>
 		      		</div>
-		      		<img src="img/Colette.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalColette">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/e/e4/Colette_padr%C3%A3o.png/revision/latest?cb=20200915203825&path-prefix=pt" class="card-img-top img" alt="Colette" data-bs-toggle="modal" data-bs-target="#modalColette">
 
 		      		<!-- Modal Colette -->
 					    <div class="modal fade" id="modalColette" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalColetteLabel" aria-hidden="true">
@@ -1354,11 +1270,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Colette_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/e/e4/Colette_padr%C3%A3o.png/revision/latest?cb=20200915203825&path-prefix=pt" class="img-fluid" alt="Colette - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1368,14 +1281,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample24">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse24" aria-expanded="false" aria-controls="collapse24">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse24" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse24" class="accordion-collapse collapse" data-bs-parent="#accordionExample24">
 					      		<div class="accordion-body">
 					        		Colette tem uma coleção de miniaturas e bichos de pelúcia de cada um dos Brawlers. Obcecada? Sim. Será que ela vive num mundinho só dela? Com certeza.
 					      		</div>
@@ -1388,13 +1301,13 @@
 		</div>
 	</section>
 
-	<div style="margin-top: 5%;"></div>
+	<div class="espaco-5"></div>
 
 	<div><h1>Mitico</h1></div>
 
 	<br id="Mitico">
 
-	<div style="margin-top: 3%;"></div>
+	<div class="espaco-3"></div>
 
 	<section class="container-fluid text-center caixa ">
 		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 m-auto" style="width: 95%; padding-left: 16.2%; padding-right: 15%;">
@@ -1405,7 +1318,7 @@
 			        <h5 class="card-title">Mortis</h5>
 			        <p class="card-text">Algoz</p>
 			      	</div>
-		      		<img src="img/Mortis.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalMortis" >
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/d/d7/Mortis.png/revision/latest?cb=20200925033509&path-prefix=pt" class="card-img-top img" alt="Mortis" data-bs-toggle="modal" data-bs-target="#modalMortis" >
 
 		      		<!-- Modal Mortis -->
 					    <div class="modal fade" id="modalMortis" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalMortisLabel" aria-hidden="true">
@@ -1417,11 +1330,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Mortis_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/d/d7/Mortis.png/revision/latest?cb=20200925033509&path-prefix=pt" class="img-fluid" alt="Mortis - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1431,14 +1341,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample25">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse25" aria-expanded="false" aria-controls="collapse25">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse25" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse25" class="accordion-collapse collapse" data-bs-parent="#accordionExample25">
 					      		<div class="accordion-body">
 					        		Mortis tinha grandes projetos como agente funerário e vampiro, mas, como ainda não tem ninguém com o pé na cova no Starr Park, os negócios vão de mal a pior.
 					      		</div>
@@ -1454,7 +1364,7 @@
 			        <h5 class="card-title">Tara</h5>
 			        <p class="card-text">Destruidor</p>
 			      	</div>
-		      		<img src="img/Tara.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalTara">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/2/2b/Tara.png/revision/latest?cb=20200925034115&path-prefix=pt" class="card-img-top img" alt="Tara" data-bs-toggle="modal" data-bs-target="#modalTara">
 
 		      		<!-- Modal Tara -->
 					    <div class="modal fade" id="modalTara" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalTaraLabel" aria-hidden="true">
@@ -1466,11 +1376,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Tara_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/2/2b/Tara.png/revision/latest?cb=20200925034115&path-prefix=pt" class="img-fluid" alt="Tara - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1480,14 +1387,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample26">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse26" aria-expanded="false" aria-controls="collapse26">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse26" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse26" class="accordion-collapse collapse" data-bs-parent="#accordionExample26">
 					      		<div class="accordion-body">
 					        		Tara viu nas cartas que o futuro é nebuloso, mas não se preocupe! Além de prever o futuro, ela vende amuletos protetores por uma bagatela! Vai querer um?
 					      		</div>
@@ -1503,7 +1410,7 @@
 			        <h5 class="card-title">Lou</h5>
 			        <p class="card-text">Controle</p>
 			      	</div>
-		      		<img src="img/Lou.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalLou">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/1/17/Lou.png/revision/latest?cb=20201122225255&path-prefix=pt" class="card-img-top img" alt="Lou" data-bs-toggle="modal" data-bs-target="#modalLou">
 
 		      		<!-- Modal Lou -->
 					    <div class="modal fade" id="modalLou" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLouLabel" aria-hidden="true">
@@ -1515,11 +1422,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Lou_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/1/17/Lou.png/revision/latest?cb=20201122225255&path-prefix=pt" class="img-fluid" alt="Lou - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1529,14 +1433,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample27">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse27" aria-expanded="false" aria-controls="collapse27">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse27" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse27" class="accordion-collapse collapse" data-bs-parent="#accordionExample27">
 					      		<div class="accordion-body">
 					        		Lou é um robô-vendedor de sorvetes que ainda não vendeu nadica de nada. Será que viver numa montanha cheia de neve tem a ver com a falta de sorte dele?
 					      		</div>
@@ -1552,7 +1456,7 @@
 			        <h5 class="card-title">Fang</h5>
 			        <p class="card-text">Algoz</p>
 			      	</div>
-		      		<img src="img/Fang.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalFang">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/c/c3/Fang.png/revision/latest?cb=20211212142205&path-prefix=pt" class="card-img-top img" alt="Fang" data-bs-toggle="modal" data-bs-target="#modalFang">
 
 		      		<!-- Modal Fang -->
 					    <div class="modal fade" id="modalFang" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalFangLabel" aria-hidden="true">
@@ -1564,11 +1468,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Fang_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/c/c3/Fang.png/revision/latest?cb=20211212142205&path-prefix=pt" class="img-fluid" alt="Fang - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1578,14 +1479,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample28">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse28" aria-expanded="false" aria-controls="collapse28">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse28" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse28" class="accordion-collapse collapse" data-bs-parent="#accordionExample28">
 					      		<div class="accordion-body">
 					        		Fang é tão obcecado por filmes de Kung Fu que é como se ele vivesse um! Além disso, é decidido, simpático e megaoriginal, pois ele nunca usa as mãos se puder usar os pés.
 					      		</div>
@@ -1601,7 +1502,7 @@
 			        <h5 class="card-title">Clancy</h5>
 			        <p class="card-text">Destruidor</p>
 			      	</div>
-		      		<img src="img/Clancy.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalClancy">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/5/56/Clancy.png/revision/latest?cb=20240915164339&path-prefix=pt" class="card-img-top img" alt="Clancy" data-bs-toggle="modal" data-bs-target="#modalClancy">
 
 		      		<!-- Modal Clancy -->
 					    <div class="modal fade" id="modalClancy" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalClancyLabel" aria-hidden="true">
@@ -1613,11 +1514,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Clancy_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/5/56/Clancy.png/revision/latest?cb=20240915164339&path-prefix=pt" class="img-fluid" alt="Clancy - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1627,14 +1525,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample29">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse29" aria-expanded="false" aria-controls="collapse29">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse29" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse29" class="accordion-collapse collapse" data-bs-parent="#accordionExample29">
 					      		<div class="accordion-body">
 					        		Quando começa alguma coisa, Clancy nunca volta atrás (a não ser que esteja sob ordens do Hank). Ele entrou totalmente no personagem crustáceo e não mede esforços por seus colegas.
 					      		</div>
@@ -1650,7 +1548,7 @@
 			        <h5 class="card-title">Moe</h5>
 			        <p class="card-text">Destruidor</p>
 			      	</div>
-		      		<img src="img/Moe.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalMoe">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/c/cc/Moe.png/revision/latest?cb=20250124020433&path-prefix=pt" class="card-img-top img" alt="Moe" data-bs-toggle="modal" data-bs-target="#modalMoe">
 
 		      		<!-- Modal Moe -->
 					    <div class="modal fade" id="modalMoe" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalMoeLabel" aria-hidden="true">
@@ -1662,11 +1560,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Moe_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/c/cc/Moe.png/revision/latest?cb=20250124020433&path-prefix=pt" class="img-fluid" alt="Moe - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1676,14 +1571,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample30">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse30" aria-expanded="false" aria-controls="collapse30">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse30" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse30" class="accordion-collapse collapse" data-bs-parent="#accordionExample30">
 					      		<div class="accordion-body">
 					        		Moe é um rato cego que vivia nos esgotos do Starr Park até ser encontrado e adotado por Grom. Hoje, trabalha na equipe de manutenção do parque e usa sua escavadeira para explorar os túneis subterrâneos. Para o desespero do Ash, ele semeia o caos por onde passa.
 					      		</div>
@@ -1699,7 +1594,7 @@
 			        <h5 class="card-title">Byron</h5>
 			        <p class="card-text">Suporte</p>
 			      	</div>
-		      		<img src="img/Byron.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalByron">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/a/a7/Byron.png/revision/latest?cb=20210106221825&path-prefix=pt" class="card-img-top img" alt="Byron" data-bs-toggle="modal" data-bs-target="#modalByron">
 
 		      		<!-- Modal Byron -->
 					    <div class="modal fade" id="modalByron" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalByronLabel" aria-hidden="true">
@@ -1711,11 +1606,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Byron_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/a/a7/Byron.png/revision/latest?cb=20210106221825&path-prefix=pt" class="img-fluid" alt="Byron - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1725,14 +1617,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample31">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse31" aria-expanded="false" aria-controls="collapse31">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse31" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse31" class="accordion-collapse collapse" data-bs-parent="#accordionExample31">
 					      		<div class="accordion-body">
 					        		Byron produz misturas capazes de curar ou prejudicar das mais variadas maneiras. Antes de desafiá-lo, é bom saber que a grande maioria dos seus medicamentos se enquadra na segunda categoria.
 					      		</div>
@@ -1748,7 +1640,7 @@
 		        	<h5 class="card-title">Max</h5>
 		        	<p class="card-text">Suporte</p>
 		      		</div>
-		      		<img src="img/Max.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalMax">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/3/32/Max.png/revision/latest?cb=20200925035226&path-prefix=pt" class="card-img-top img" alt="Max" data-bs-toggle="modal" data-bs-target="#modalMax">
 
 		      		<!-- Modal Max -->
 					    <div class="modal fade" id="modalMax" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalMaxLabel" aria-hidden="true">
@@ -1760,11 +1652,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Max_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/3/32/Max.png/revision/latest?cb=20200925035226&path-prefix=pt" class="img-fluid" alt="Max - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1774,14 +1663,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample32">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse32" aria-expanded="false" aria-controls="collapse32">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse32" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse32" class="accordion-collapse collapse" data-bs-parent="#accordionExample32">
 					      		<div class="accordion-body">
 					        		Abastecida por energéticos, Max aparece para ajudar num piscar de olhos, mas acaba passando como trovão, sem tempo de fazer muita coisa. Bem, o que vale é a intenção.
 					      		</div>
@@ -1794,13 +1683,13 @@
 		</div>
 	</section>
 
-	<div style="margin-top: 5%;"></div>
+	<div class="espaco-5"></div>
 
 	<div><h1>Lendario</h1></div>
 
 	<br id="Lendario">
 
-	<div style="margin-top: 3%;"></div>
+	<div class="espaco-3"></div>
 
 	<section class="container-fluid text-center caixa ">
 		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 m-auto" style="width: 95%; padding-left: 16.2%; padding-right: 15%;">
@@ -1811,7 +1700,7 @@
 			        <h5 class="card-title">Corvo</h5>
 			        <p class="card-text">Algoz</p>
 			      	</div>
-		      		<img src="img/Corvo.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalCorvo" >
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/9/96/Corvo.png/revision/latest?cb=20200925134739&path-prefix=pt" class="card-img-top img" alt="Corvo" data-bs-toggle="modal" data-bs-target="#modalCorvo" >
 
 		      		<!-- Modal Corvo -->
 					    <div class="modal fade" id="modalCorvo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalCorvoLabel" aria-hidden="true">
@@ -1823,11 +1712,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Corvo_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/9/96/Corvo.png/revision/latest?cb=20200925134739&path-prefix=pt" class="img-fluid" alt="Corvo - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1837,14 +1723,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample33">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse33" aria-expanded="false" aria-controls="collapse33">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse33" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse33" class="accordion-collapse collapse" data-bs-parent="#accordionExample33">
 					      		<div class="accordion-body">
 					        		Corvo é caladão e não confia em ninguém, mas dizem por aí que ele sempre aparece na lanchonete do Starr Park para encontrar o Bull e a Bibi.
 					      		</div>
@@ -1860,7 +1746,7 @@
 			        <h5 class="card-title">Spike</h5>
 			        <p class="card-text">Destruidor</p>
 			      	</div>
-		      		<img src="img/Spike.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalSpike">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/d/de/Spike.png/revision/latest?cb=20240601121811&path-prefix=pt" class="card-img-top img" alt="Spike" data-bs-toggle="modal" data-bs-target="#modalSpike">
 
 		      		<!-- Modal Spike -->
 					    <div class="modal fade" id="modalSpike" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSpikeLabel" aria-hidden="true">
@@ -1872,11 +1758,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Spike_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/d/de/Spike.png/revision/latest?cb=20240601121811&path-prefix=pt" class="img-fluid" alt="Spike - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1886,14 +1769,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample34">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse34" aria-expanded="false" aria-controls="collapse34">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse34" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse34" class="accordion-collapse collapse" data-bs-parent="#accordionExample34">
 					      		<div class="accordion-body">
 					        		Muita gente acha que o Spike é o bichinho de estimação do Colt e da Shelly. O coitado começou a fazer terapia só por conta disso, sabia?
 					      		</div>
@@ -1909,7 +1792,7 @@
 			        <h5 class="card-title">Sandy</h5>
 			        <p class="card-text">Controle</p>
 			      	</div>
-		      		<img src="img/Sandy.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalSandy">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/4/4e/Sandy.png/revision/latest?cb=20240601121950&path-prefix=pt" class="card-img-top img" alt="Sandy" data-bs-toggle="modal" data-bs-target="#modalSandy">
 
 		      		<!-- Modal Sandy -->
 					    <div class="modal fade" id="modalSandy" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSandyLabel" aria-hidden="true">
@@ -1921,11 +1804,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Sandy_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/4/4e/Sandy.png/revision/latest?cb=20240601121950&path-prefix=pt" class="img-fluid" alt="Sandy - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1935,14 +1815,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample35">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse35" aria-expanded="false" aria-controls="collapse35">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse35" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse35" class="accordion-collapse collapse" data-bs-parent="#accordionExample35">
 					      		<div class="accordion-body">
 					        		Nas raríssimas ocasiões em que não está dormindo, Sandy tenta ajudar Tara na loja. No entanto, o papo dos clientes dá um sono, e todo o trabalho fica para sua irmã...
 					      		</div>
@@ -1958,7 +1838,7 @@
 			        <h5 class="card-title">Leon</h5>
 			        <p class="card-text">Algoz</p>
 			      	</div>
-		      		<img src="img/Leon.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalLeon">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/2/21/Leon.png/revision/latest?cb=20200925135213&path-prefix=pt" class="card-img-top img" alt="Leon" data-bs-toggle="modal" data-bs-target="#modalLeon">
 
 		      		<!-- Modal Leon -->
 					    <div class="modal fade" id="modalLeon" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLeonLabel" aria-hidden="true">
@@ -1970,11 +1850,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Leon_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/2/21/Leon.png/revision/latest?cb=20200925135213&path-prefix=pt" class="img-fluid" alt="Leon - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1984,14 +1861,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample36">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse36" aria-expanded="false" aria-controls="collapse36">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse36" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse36" class="accordion-collapse collapse" data-bs-parent="#accordionExample36">
 					      		<div class="accordion-body">
 					        		Como o Leon não gosta de socializar, sua invisibilidade é muito útil. A única pessoa de quem ele não se esconde é a Nita, sua irmãzinha.
 					      		</div>
@@ -2007,7 +1884,7 @@
 			        <h5 class="card-title">Wattson</h5>
 			        <p class="card-text">Destruidor</p>
 			      	</div>
-		      		<img src="img/Wattson.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalWattson">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/1/10/Wattson.png/revision/latest?cb=20200925140032&path-prefix=pt" class="card-img-top img" alt="Wattson" data-bs-toggle="modal" data-bs-target="#modalWattson">
 
 		      		<!-- Modal Wattson -->
 					    <div class="modal fade" id="modalWattson" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalWattsonLabel" aria-hidden="true">
@@ -2019,11 +1896,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Wattson_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/1/10/Wattson.png/revision/latest?cb=20200925140032&path-prefix=pt" class="img-fluid" alt="Wattson - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -2033,14 +1907,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample37">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse37" aria-expanded="false" aria-controls="collapse37">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse37" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse37" class="accordion-collapse collapse" data-bs-parent="#accordionExample37">
 					      		<div class="accordion-body">
 					        		Sempre que SURGE um churrasco, pode apostar que Wattson está lá! O brother é pura animação, tem gingado e um suprimento infinito de energéticos. Bebida é o que não vai faltar!
 					      		</div>
@@ -2056,7 +1930,7 @@
 			        <h5 class="card-title">Cordelius</h5>
 			        <p class="card-text">Algoz</p>
 			      	</div>
-		      		<img src="img/Cordelius.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalCordelius">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/3/39/Cordelius.png/revision/latest?cb=20250619142958&path-prefix=pt" class="card-img-top img" alt="Cordelius" data-bs-toggle="modal" data-bs-target="#modalCordelius">
 
 		      		<!-- Modal Cordelius -->
 					    <div class="modal fade" id="modalCordelius" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalCordeliusLabel" aria-hidden="true">
@@ -2068,11 +1942,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Cordelius_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/3/39/Cordelius.png/revision/latest?cb=20250619142958&path-prefix=pt" class="img-fluid" alt="Cordelius - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -2082,14 +1953,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample38">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse38" aria-expanded="false" aria-controls="collapse38">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse38" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse38" class="accordion-collapse collapse" data-bs-parent="#accordionExample38">
 					      		<div class="accordion-body">
 					        		Ele é jardineiro e cuidador da floresta e não se dá muito bem com estranhos. Obcecado por cogumelos.
 					      		</div>
@@ -2105,7 +1976,7 @@
 			        <h5 class="card-title">Kenji</h5>
 			        <p class="card-text">Algoz</p>
 			      	</div>
-		      		<img src="img/Kenji.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalKenji">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/c/c8/Kenji.png/revision/latest?cb=20250122175634&path-prefix=pt" class="card-img-top img" alt="Kenji" data-bs-toggle="modal" data-bs-target="#modalKenji">
 
 		      		<!-- Modal Kenji -->
 					    <div class="modal fade" id="modalKenji" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalKenjiLabel" aria-hidden="true">
@@ -2117,11 +1988,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Kenji_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/c/c8/Kenji.png/revision/latest?cb=20250122175634&path-prefix=pt" class="img-fluid" alt="Kenji - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -2131,14 +1999,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample39">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse39" aria-expanded="false" aria-controls="collapse39">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse39" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse39" class="accordion-collapse collapse" data-bs-parent="#accordionExample39">
 					      		<div class="accordion-body">
 					        		Este samurai trocou a katana pelos utensílios de cozinha para cuidar do restaurante de sushi no Starr Park. Parece que ele está escondendo algo sobre o seu passado, mas seus sushis são tão deliciosos que ninguém se importa!
 					      		</div>
@@ -2154,7 +2022,7 @@
 		        	<h5 class="card-title">Chester</h5>
 		        	<p class="card-text">Destruidor</p>
 		      		</div>
-		      		<img src="img/Chester.png" class="card-img-top img" alt="..." data-bs-toggle="modal" data-bs-target="#modalChester">
+		      		<img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/0/06/Chester.png/revision/latest?cb=20250701212512&path-prefix=pt" class="card-img-top img" alt="Chester" data-bs-toggle="modal" data-bs-target="#modalChester">
 
 		      		<!-- Modal Chester -->
 					    <div class="modal fade" id="modalChester" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalChesterLabel" aria-hidden="true">
@@ -2166,11 +2034,8 @@
 					            		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					          		</div>
 					          		<div class="modal-body">
-							            <!-- Vídeo MP4 no Modal, com autoplay e sem controles -->
-							            <video autoplay muted loop class="w-100" style="max-width: 100%; max-height: 400px; object-fit: contain;">
-							              <source src="img/Chester_.mp4" type="video/mp4">
-							              Seu navegador não suporta o vídeo.
-							            </video>
+							            <!-- Vídeo de animação de vitória indisponível: exibindo a imagem do Brawler -->
+							            <img loading="lazy" src="https://static.wikia.nocookie.net/brawlstars/images/0/06/Chester.png/revision/latest?cb=20250701212512&path-prefix=pt" class="img-fluid" alt="Chester - Animação de Vitória">
 					          		</div>
 						          	<div class="modal-footer">
 							            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -2180,14 +2045,14 @@
 					    </div>
 
 		      		<!-- Accordion (se necessário) -->
-		      		<div class="accordion" id="accordionExample">
+		      		<div class="accordion" id="accordionExample40">
 					  	<div class="accordion-item">
 					    	<h2 class="accordion-header">
 					      		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse40" aria-expanded="false" aria-controls="collapse40">
 					       	 		Veja mais
 					      		</button>
 					    	</h2>
-					    	<div id="collapse40" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+					    	<div id="collapse40" class="accordion-collapse collapse" data-bs-parent="#accordionExample40">
 					      		<div class="accordion-body">
 					        		Chester está sempre zoando os outros. Quanto mais ele irrita alguém, mais ele se diverte... ainda mais se esse alguém for a Mandy.
 					      		</div>
@@ -2200,7 +2065,7 @@
 		</div>
 	</section>
 
-	<div style="margin-top: 7%;"></div>
+	<div class="espaco-7"></div>
 
 	<div class="container mt-5">
   	<h2>Comparação de Brawlers</h2>
@@ -2258,9 +2123,28 @@
   <div class="card-header">Primeiro Brawler</div>
   <div class="card-body">
     <h5 class="card-title" id="brawlerName1"></h5>
-    <p class="card-text" id="brawlerDescription1"></p>
-    <button type="button" class="btn btn-danger" id="attackButton1" data-bs-toggle="modal" data-bs-target="#brawlerModal1">Ver Ataque</button>
-    <button type="button" class="btn btn-warning" id="superButton1" data-bs-toggle="modal" data-bs-target="#brawlerModal1">Ver Super</button>
+    <div class="video-comparativo">
+      <div class="video-item">
+        <div class="video-box" id="videoBoxAtaque1">
+          <video id="brawlerVideoAtaque1" class="video-elemento d-none" controls loop></video>
+          <div class="video-poster" id="posterAtaque1">
+            <button type="button" class="btn-play" id="playAtaque1" aria-label="Reproduzir vídeo de ataque">&#9658;</button>
+            <span class="video-label">Ataque</span>
+          </div>
+        </div>
+        <p class="video-descricao" id="descricaoAtaque1"></p>
+      </div>
+      <div class="video-item">
+        <div class="video-box" id="videoBoxSuper1">
+          <video id="brawlerVideoSuper1" class="video-elemento d-none" controls loop></video>
+          <div class="video-poster" id="posterSuper1">
+            <button type="button" class="btn-play" id="playSuper1" aria-label="Reproduzir vídeo de super">&#9658;</button>
+            <span class="video-label">Super</span>
+          </div>
+        </div>
+        <p class="video-descricao" id="descricaoSuper1"></p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -2317,121 +2201,72 @@
   <div class="card-header">Segundo Brawler</div>
   <div class="card-body">
     <h5 class="card-title" id="brawlerName2"></h5>
-    <p class="card-text" id="brawlerDescription2"></p>
-    <button type="button" class="btn btn-danger" id="attackButton2" data-bs-toggle="modal" data-bs-target="#brawlerModal2">Ver Ataque</button>
-    <button type="button" class="btn btn-warning" id="superButton2" data-bs-toggle="modal" data-bs-target="#brawlerModal2">Ver Super</button>
-  </div>
-</div>
-
-  </div>
-
-  <!-- Modal para o Primeiro Brawler -->
-  <div class="modal fade" id="brawlerModal1" tabindex="-1" aria-labelledby="brawlerModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="brawlerModalLabel1"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="video-comparativo">
+      <div class="video-item">
+        <div class="video-box" id="videoBoxAtaque2">
+          <video id="brawlerVideoAtaque2" class="video-elemento d-none" controls loop></video>
+          <div class="video-poster" id="posterAtaque2">
+            <button type="button" class="btn-play" id="playAtaque2" aria-label="Reproduzir vídeo de ataque">&#9658;</button>
+            <span class="video-label">Ataque</span>
+          </div>
         </div>
-        <div class="modal-body">
-          <video id="brawlerVideo1" autoplay loop muted width="100%"></video>
-        </div>
+        <p class="video-descricao" id="descricaoAtaque2"></p>
       </div>
-    </div>
-  </div>
-
-  <!-- Modal para o Segundo Brawler -->
-  <div class="modal fade" id="brawlerModal2" tabindex="-1" aria-labelledby="brawlerModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="brawlerModalLabel2"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="video-item">
+        <div class="video-box" id="videoBoxSuper2">
+          <video id="brawlerVideoSuper2" class="video-elemento d-none" controls loop></video>
+          <div class="video-poster" id="posterSuper2">
+            <button type="button" class="btn-play" id="playSuper2" aria-label="Reproduzir vídeo de super">&#9658;</button>
+            <span class="video-label">Super</span>
+          </div>
         </div>
-        <div class="modal-body">
-          <video id="brawlerVideo2" autoplay loop muted width="100%"></video>
-        </div>
+        <p class="video-descricao" id="descricaoSuper2"></p>
       </div>
     </div>
   </div>
 </div>
 
+  </div>
+</div>
+</div>
 
 
 
-<div style="margin-top: 10%;"></div>
+
+<div class="espaco-10"></div>
 
 
 	<nav aria-label="..." >
  		<ul class="pagination Mx-auto text-center d-flex justify-content-center" >
 		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="index.html">1</a></li>
-		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="index2.html">2</a></li>
-		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="index3.html">3</a></li>
+		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="visuais.html">2</a></li>
+		    <li class="page-item"><a class="page-link" style="background-color: #BBDEFB; color: #333333; border-color: #BBDEFB;" href="recursos.html">3</a></li>
 	  	</ul>
 	</nav>
 
+	<!-- Rodapé -->
+	<footer class="rodape">
+		<div class="container">
+			<p class="rodape-titulo">Brast</p>
+			<p class="rodape-aviso">Projeto de fã sobre Brawl Stars, sem afiliação oficial com a Supercell.</p>
+			<ul class="rodape-links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="visuais.html">Visuais</a></li>
+				<li><a href="recursos.html">Recursos</a></li>
+				<li><a href="https://github.com/Felpsmmendes/Brast" target="_blank" rel="noopener">Ver no GitHub</a></li>
+			</ul>
+			<p class="rodape-copyright">&copy; 2026 Brast</p>
+		</div>
+	</footer>
 
-
-
-	<!-- Scrollable modal -->
-<div class="modal-dialog modal-dialog-scrollable">
-  ...
-</div>
-
-
+	<!-- Botão Voltar ao topo -->
+	<button id="btnVoltarTopo" class="btn-voltar-topo" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">&uarr;</button>
 
 <!-- Inicio NavBar -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const navbar = document.querySelector('.navbar-custom');
-        const visuaisButton = document.getElementById('visuaisButton');
-        const visuaisMenu = document.getElementById('visuaisMenu');
-        const raridadeButton = document.getElementById('raridadeButton');
-        const raridadeMenu = document.getElementById('raridadeMenu');
-        const raridadeIcon = raridadeButton.querySelector('i'); // Seleciona o ícone da seta
-
-        // Mudança de cor da navbar ao rolar a página
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Abrir/Fechar o menu "Visuais" ao clicar
-        visuaisButton.addEventListener('click', function (e) {
-            e.stopPropagation();
-            visuaisMenu.classList.toggle('show');
-            raridadeMenu.classList.remove('show');
-            // Remove o foco do botão após o clique
-            visuaisButton.blur();
-        });
-
-        // Abrir/Fechar o submenu "Raridade" ao clicar
-        raridadeButton.addEventListener('click', function (e) {
-            e.stopPropagation();
-            raridadeMenu.classList.toggle('show');
-            // Remove o foco do botão após o clique
-            raridadeButton.blur();
-        });
-
-        // Fechar todos os submenus ao clicar fora da navbar
-        document.addEventListener('click', function () {
-            visuaisMenu.classList.remove('show');
-            raridadeMenu.classList.remove('show');
-        });
-    });
-</script>
-
-
-
-
-
-
-
-
-
+<script src="js/navbar.js"></script>
+<script src="js/tema.js"></script>
+<script src="js/voltar-topo.js"></script>
+<script src="js/imagem-fallback.js"></script>
 <!-- Termino NavBar -->
 
 
@@ -2486,55 +2321,94 @@
 
 <script>
   const brawlers = {
-    "Nita": { name: "Nita", description: "Ataque: Cria um terremoto.<br>Super: Invoca o urso.", attackVideo: "img/AtaqueNita.mp4", superVideo: "img/SuperNita.mp4" },
-    "Brock": { name: "Brock", description: "Ataque: Lança foguetes.<br>Super: Dispara múltiplos foguetes.", attackVideo: "img/AtaqueBrock.mp4", superVideo: "img/SuperBrock.mp4" },
-    "Colt": { name: "Colt", description: "Ataque: Dispara balas rápidas.<br>Super: Dispara tiros destrutivos.", attackVideo: "img/AtaqueColt.mp4", superVideo: "img/SuperColt.mp4" },
-    "Bull": { name: "Bull", description: "Ataque: Tiros poderosos de curto alcance.<br>Super: Investida destrutiva.", attackVideo: "img/AtaqueBull.mp4", superVideo: "img/SuperBull.mp4" },
-    "El Primo": { name: "El Primo", description: "Ataque: Socos poderosos.<br>Super: Salto esmagador.", attackVideo: "img/AtaqueElPrimo.mp4", superVideo: "img/SuperElPrimo.mp4" },
-    "Barley": { name: "Barley", description: "Ataque: Joga garrafas de veneno.<br>Super: Área de dano.", attackVideo: "img/AtaqueBarley.mp4", superVideo: "img/SuperBarley.mp4" },
-    "Poco": { name: "Poco", description: "Ataque: Ondas de som.<br>Super: Cura aliados.", attackVideo: "img/AtaquePoco.mp4", superVideo: "img/SuperPoco.mp4" },
-    "Rosa": { name: "Rosa", description: "Ataque: Socos.<br>Super: Escudo protetor.", attackVideo: "img/AtaqueRosa.mp4", superVideo: "img/SuperRosa.mp4" },
+    "Nita": { name: "Nita", attackDescription: "Cria um terremoto.", superDescription: "Invoca o urso.", attackVideo: "img/AtaqueNita.mp4", superVideo: "img/SuperNita.mp4" },
+    "Brock": { name: "Brock", attackDescription: "Lança foguetes.", superDescription: "Dispara múltiplos foguetes.", attackVideo: "img/AtaqueBrock.mp4", superVideo: "img/SuperBrock.mp4" },
+    "Colt": { name: "Colt", attackDescription: "Dispara balas rápidas.", superDescription: "Dispara tiros destrutivos.", attackVideo: "img/AtaqueColt.mp4", superVideo: "img/SuperColt.mp4" },
+    "Bull": { name: "Bull", attackDescription: "Tiros poderosos de curto alcance.", superDescription: "Investida destrutiva.", attackVideo: "img/AtaqueBull.mp4", superVideo: "img/SuperBull.mp4" },
+    "El Primo": { name: "El Primo", attackDescription: "Socos poderosos.", superDescription: "Salto esmagador.", attackVideo: "img/AtaqueElPrimo.mp4", superVideo: "img/SuperElPrimo.mp4" },
+    "Barley": { name: "Barley", attackDescription: "Joga garrafas de veneno.", superDescription: "Área de dano.", attackVideo: "img/AtaqueBarley.mp4", superVideo: "img/SuperBarley.mp4" },
+    "Poco": { name: "Poco", attackDescription: "Ondas de som.", superDescription: "Cura aliados.", attackVideo: "img/AtaquePoco.mp4", superVideo: "img/SuperPoco.mp4" },
+    "Rosa": { name: "Rosa", attackDescription: "Socos.", superDescription: "Escudo protetor.", attackVideo: "img/AtaqueRosa.mp4", superVideo: "img/SuperRosa.mp4" },
     
-    "Carl": { name: "Carl", description: "Ataque: Lança bumerangue.<br>Super: Giro rápido.", attackVideo: "img/AtaqueCarl.mp4", superVideo: "img/SuperCarl.mp4" },
-    "Jacky": { name: "Jacky", description: "Ataque: Impacto no chão.<br>Super: Puxa inimigos.", attackVideo: "img/AtaqueJacky.mp4", superVideo: "img/SuperJacky.mp4" },
-    "Rico": { name: "Rico", description: "Ataque: Balas que ricocheteiam.<br>Super: Tiros múltiplos.", attackVideo: "img/AtaqueRico.mp4", superVideo: "img/SuperRico.mp4" },
-    "Gus": { name: "Gus",description: "Ataque: Projéteis rápidos.<br>Super: Lança armadilha.", attackVideo: "img/AtaqueGus.mp4", superVideo: "img/SuperGus.mp4" },
-    "Darryl": { name: "Darryl", description: "Ataque: Tiros curtos.<br>Super: Rola pelo mapa.", attackVideo: "img/AtaqueDarryl.mp4", superVideo: "img/SuperDarryl.mp4" },
-    "Jessie": { name: "Jessie", description: "Ataque: Dispara raio.<br>Super: Constrói torreta.", attackVideo: "img/AtaqueJessie.mp4", superVideo: "img/SuperJessie.mp4" },
-    "Tick": { name: "Tick", description: "Ataque: Lança minas.<br>Super: Bomba teleguiada.", attackVideo: "img/AtaqueTick.mp4", superVideo: "img/SuperTick.mp4" },
-    "Dynamike": { name: "Dynamike", description: "Ataque: Joga dinamites.<br>Super: Explosão poderosa.", attackVideo: "img/AtaqueDynamike.mp4", superVideo: "img/SuperDynamike.mp4" },
+    "Carl": { name: "Carl", attackDescription: "Lança bumerangue.", superDescription: "Giro rápido.", attackVideo: "img/AtaqueCarl.mp4", superVideo: "img/SuperCarl.mp4" },
+    "Jacky": { name: "Jacky", attackDescription: "Impacto no chão.", superDescription: "Puxa inimigos.", attackVideo: "img/AtaqueJacky.mp4", superVideo: "img/SuperJacky.mp4" },
+    "Rico": { name: "Rico", attackDescription: "Balas que ricocheteiam.", superDescription: "Tiros múltiplos.", attackVideo: "img/AtaqueRico.mp4", superVideo: "img/SuperRico.mp4" },
+    "Gus": { name: "Gus", attackDescription: "Projéteis rápidos.", superDescription: "Lança armadilha.", attackVideo: "img/AtaqueGus.mp4", superVideo: "img/SuperGus.mp4" },
+    "Darryl": { name: "Darryl", attackDescription: "Tiros curtos.", superDescription: "Rola pelo mapa.", attackVideo: "img/AtaqueDarryl.mp4", superVideo: "img/SuperDarryl.mp4" },
+    "Jessie": { name: "Jessie", attackDescription: "Dispara raio.", superDescription: "Constrói torreta.", attackVideo: "img/AtaqueJessie.mp4", superVideo: "img/SuperJessie.mp4" },
+    "Tick": { name: "Tick", attackDescription: "Lança minas.", superDescription: "Bomba teleguiada.", attackVideo: "img/AtaqueTick.mp4", superVideo: "img/SuperTick.mp4" },
+    "Dynamike": { name: "Dynamike", attackDescription: "Joga dinamites.", superDescription: "Explosão poderosa.", attackVideo: "img/AtaqueDynamike.mp4", superVideo: "img/SuperDynamike.mp4" },
 
-    "Stu": { name: "Stu", description: "Ataque: Dispara rajadas de fogo.<br>Super: Dash explosivo.", attackVideo: "img/AtaqueStu.mp4", superVideo: "img/SuperStu.mp4" },
-    "Emz": { name: "Emz", description: "Ataque: Spray de veneno.<br>Super: Área de dano contínuo.", attackVideo: "img/AtaqueEmz.mp4", superVideo: "img/SuperEmz.mp4" },
-    "Piper": { name: "Piper", description: "Ataque: Dispara tiros precisos.<br>Super: Foge com granadas.", attackVideo: "img/AtaquePiper.mp4", superVideo: "img/SuperPiper.mp4" },
-    "Gale": { name: "Gale", description: "Ataque: Ventos congelantes.<br>Super: Empurra inimigos.", attackVideo: "img/AtaqueGale.mp4", superVideo: "img/SuperGale.mp4" },
-    "Bibi": {name: "Bibi", description: "Ataque: Bola de beisebol.<br>Super: Lança bolão.", attackVideo: "img/AtaqueBibi.mp4",superVideo: "img/SuperBibi.mp4" },
-    "Belle": {name: "Belle",description: "Ataque: Dispara um tiro que ricocheteia.<br>Super: Lança um choque em área.",attackVideo: "img/AtaqueBelle.mp4",superVideo: "img/SuperBelle.mp4" },
-    "Maisie": { name: "Maisie", description: "Ataque: Tiro rápido.<br>Super: Tiro em área.", attackVideo: "img/AtaqueMaisie.mp4", superVideo: "img/SuperMaisie.mp4" },
-    "Colette": { name: "Colette", description: "Ataque: Dano baseado na saúde do inimigo.<br>Super: Dá dano a todos os inimigos em volta.", attackVideo: "img/AtaqueColette.mp4", superVideo: "img/SuperColette.mp4" },
+    "Stu": { name: "Stu", attackDescription: "Dispara rajadas de fogo.", superDescription: "Dash explosivo.", attackVideo: "img/AtaqueStu.mp4", superVideo: "img/SuperStu.mp4" },
+    "Emz": { name: "Emz", attackDescription: "Spray de veneno.", superDescription: "Área de dano contínuo.", attackVideo: "img/AtaqueEmz.mp4", superVideo: "img/SuperEmz.mp4" },
+    "Piper": { name: "Piper", attackDescription: "Dispara tiros precisos.", superDescription: "Foge com granadas.", attackVideo: "img/AtaquePiper.mp4", superVideo: "img/SuperPiper.mp4" },
+    "Gale": { name: "Gale", attackDescription: "Ventos congelantes.", superDescription: "Empurra inimigos.", attackVideo: "img/AtaqueGale.mp4", superVideo: "img/SuperGale.mp4" },
+    "Bibi": { name: "Bibi", attackDescription: "Bola de beisebol.", superDescription: "Lança bolão.", attackVideo: "img/AtaqueBibi.mp4", superVideo: "img/SuperBibi.mp4" },
+    "Belle": { name: "Belle", attackDescription: "Dispara um tiro que ricocheteia.", superDescription: "Lança um choque em área.", attackVideo: "img/AtaqueBelle.mp4", superVideo: "img/SuperBelle.mp4" },
+    "Maisie": { name: "Maisie", attackDescription: "Tiro rápido.", superDescription: "Tiro em área.", attackVideo: "img/AtaqueMaisie.mp4", superVideo: "img/SuperMaisie.mp4" },
+    "Colette": { name: "Colette", attackDescription: "Dano baseado na saúde do inimigo.", superDescription: "Dá dano a todos os inimigos em volta.", attackVideo: "img/AtaqueColette.mp4", superVideo: "img/SuperColette.mp4" },
 
-    "Mortis": { name: "Mortis", description: "Ataque: Dispara lâminas em linha reta.<br>Super: Movimentos rápidos com lâminas.", attackVideo: "img/AtaqueMortis.mp4", superVideo: "img/SuperMortis.mp4" },
-    "Tara": { name: "Tara", description: "Ataque: Cartas com dano.<br>Super: Cria um buraco negro.", attackVideo: "img/AtaqueTara.mp4", superVideo: "img/SuperTara.mp4" },
-    "Lou": { name: "Lou", description: "Ataque: Lança gelo.<br>Super: Congela os inimigos.", attackVideo: "img/AtaqueLou.mp4", superVideo: "img/SuperLou.mp4" },
-     "Fang": { name: "Fang", description: "Ataque: Socos rápidos.<br>Super: Explosão de dano em área.", attackVideo: "img/AtaqueFang.mp4", superVideo: "img/SuperFang.mp4" },
-    "Clancy": { name: "Clancy", description: "Ataque: Dispara uma bola de energia.<br>Super: Redefine o ataque com dano extra.", attackVideo: "img/AtaqueClancy.mp4", superVideo: "img/SuperClancy.mp4" },
-    "Moe": { name: "Moe", description: "Ataque: Ataques em área com golpes fortes.<br>Super: Deixa inimigos lentos.", attackVideo: "img/AtaqueMoe.mp4", superVideo: "img/SuperMoe.mp4" },
-    "Byron": { name: "Byron", description: "Ataque: Dispara veneno que causa dano.<br>Super: Cura ou envenena inimigos.", attackVideo: "img/AtaqueByron.mp4", superVideo: "img/SuperByron.mp4" },
-    "Max": { name: "Max", description: "Ataque: Dispara rajadas rápidas.<br>Super: Aumenta a velocidade dos aliados.", attackVideo: "img/AtaqueMax.mp4", superVideo: "img/SuperMax.mp4" },
+    "Mortis": { name: "Mortis", attackDescription: "Dispara lâminas em linha reta.", superDescription: "Movimentos rápidos com lâminas.", attackVideo: "img/AtaqueMortis.mp4", superVideo: "img/SuperMortis.mp4" },
+    "Tara": { name: "Tara", attackDescription: "Cartas com dano.", superDescription: "Cria um buraco negro.", attackVideo: "img/AtaqueTara.mp4", superVideo: "img/SuperTara.mp4" },
+    "Lou": { name: "Lou", attackDescription: "Lança gelo.", superDescription: "Congela os inimigos.", attackVideo: "img/AtaqueLou.mp4", superVideo: "img/SuperLou.mp4" },
+     "Fang": { name: "Fang", attackDescription: "Socos rápidos.", superDescription: "Explosão de dano em área.", attackVideo: "img/AtaqueFang.mp4", superVideo: "img/SuperFang.mp4" },
+    "Clancy": { name: "Clancy", attackDescription: "Dispara uma bola de energia.", superDescription: "Redefine o ataque com dano extra.", attackVideo: "img/AtaqueClancy.mp4", superVideo: "img/SuperClancy.mp4" },
+    "Moe": { name: "Moe", attackDescription: "Ataques em área com golpes fortes.", superDescription: "Deixa inimigos lentos.", attackVideo: "img/AtaqueMoe.mp4", superVideo: "img/SuperMoe.mp4" },
+    "Byron": { name: "Byron", attackDescription: "Dispara veneno que causa dano.", superDescription: "Cura ou envenena inimigos.", attackVideo: "img/AtaqueByron.mp4", superVideo: "img/SuperByron.mp4" },
+    "Max": { name: "Max", attackDescription: "Dispara rajadas rápidas.", superDescription: "Aumenta a velocidade dos aliados.", attackVideo: "img/AtaqueMax.mp4", superVideo: "img/SuperMax.mp4" },
 
-    "Corvo": { name: "Corvo", description: "Ataque: Lança cianotoxinas.<br>Super: Dá dano e cura-se.", attackVideo: "img/AtaqueCorvo.mp4", superVideo: "img/SuperCorvo.mp4" },
-    "Spike": { name: "Spike", description: "Ataque: Espinhos em todas as direções.<br>Super: Área de espinhos.", attackVideo: "img/AtaqueSpike.mp4", superVideo: "img/SuperSpike.mp4" },
-    "Leon": { name: "Leon", description: "Ataque: Lâminas giratórias.<br>Super: Invisibilidade.", attackVideo: "img/AtaqueLeon.mp4", superVideo: "img/SuperLeon.mp4" },
-    "Sandy": { name: "Sandy", description: "Ataque: Areia atravessa inimigos.<br>Super: Tempestade de areia.", attackVideo: "img/AtaqueSandy.mp4", superVideo: "img/SuperSandy.mp4" },
-    "Wattson": { name: "Wattson", description: "Ataque: Tiro rápido.<br>Super: Cria campo de eletricidade.", attackVideo: "img/AtaqueWattson.mp4", superVideo: "img/SuperWattson.mp4" },
-    "Cordelius": { name: "Cordelius", description: "Ataque: Joga cordas.<br>Super: Atrai inimigos.", attackVideo: "img/AtaqueCordelius.mp4", superVideo: "img/SuperCordelius.mp4" },
-    "Kenji": { name: "Kenji", description: "Ataque: Dispara rajadas de lâminas.<br>Super: Aumenta a velocidade de movimento.", attackVideo: "img/AtaqueKenji.mp4", superVideo: "img/SuperKenji.mp4" },
-    "Chester": { name: "Chester", description: "Ataque: Projéteis explosivos.<br>Super: Habilidade aleatória.", attackVideo: "img/AtaqueChester.mp4", superVideo: "img/SuperChester.mp4" }
+    "Corvo": { name: "Corvo", attackDescription: "Lança cianotoxinas.", superDescription: "Dá dano e cura-se.", attackVideo: "img/AtaqueCorvo.mp4", superVideo: "img/SuperCorvo.mp4" },
+    "Spike": { name: "Spike", attackDescription: "Espinhos em todas as direções.", superDescription: "Área de espinhos.", attackVideo: "img/AtaqueSpike.mp4", superVideo: "img/SuperSpike.mp4" },
+    "Leon": { name: "Leon", attackDescription: "Lâminas giratórias.", superDescription: "Invisibilidade.", attackVideo: "img/AtaqueLeon.mp4", superVideo: "img/SuperLeon.mp4" },
+    "Sandy": { name: "Sandy", attackDescription: "Areia atravessa inimigos.", superDescription: "Tempestade de areia.", attackVideo: "img/AtaqueSandy.mp4", superVideo: "img/SuperSandy.mp4" },
+    "Wattson": { name: "Wattson", attackDescription: "Tiro rápido.", superDescription: "Cria campo de eletricidade.", attackVideo: "img/AtaqueWattson.mp4", superVideo: "img/SuperWattson.mp4" },
+    "Cordelius": { name: "Cordelius", attackDescription: "Joga cordas.", superDescription: "Atrai inimigos.", attackVideo: "img/AtaqueCordelius.mp4", superVideo: "img/SuperCordelius.mp4" },
+    "Kenji": { name: "Kenji", attackDescription: "Dispara rajadas de lâminas.", superDescription: "Aumenta a velocidade de movimento.", attackVideo: "img/AtaqueKenji.mp4", superVideo: "img/SuperKenji.mp4" },
+    "Chester": { name: "Chester", attackDescription: "Projéteis explosivos.", superDescription: "Habilidade aleatória.", attackVideo: "img/AtaqueChester.mp4", superVideo: "img/SuperChester.mp4" }
 };
 
 
 
-function updateBrawlerCard(selectId, cardId, nameId, descriptionId, attackButtonId, superButtonId, modalLabelId, videoId) {
+// Brawlers que já têm vídeo de Ataque de verdade no projeto. Os demais (e
+// todos os de Super, que ainda não existem) mostram "indisponível" na
+// caixa em vez de um play que não leva a lugar nenhum.
+const brawlersComVideoDeAtaque = new Set([
+  "Barley", "Brock", "Bull", "Clancy", "Colt", "Darryl", "Dynamike",
+  "El Primo", "Jessie", "Nita", "Poco", "Rico", "Rosa", "Tick"
+]);
+
+// Prepara uma caixa de vídeo (Ataque ou Super) pro Brawler escolhido:
+// mostra a capa com o botão de play, ou avisa que o vídeo ainda não existe.
+function configurarCaixaDeVideo(tipo, lado, src, disponivel, descricao) {
+  const video = document.getElementById(`brawlerVideo${tipo}${lado}`);
+  const poster = document.getElementById(`poster${tipo}${lado}`);
+  const botaoPlay = document.getElementById(`play${tipo}${lado}`);
+  const caixa = document.getElementById(`videoBox${tipo}${lado}`);
+  const descricaoElemento = document.getElementById(`descricao${tipo}${lado}`);
+  const label = poster.querySelector(".video-label");
+
+  // Reseta pro estado inicial: capa visível, vídeo parado e escondido
+  video.pause();
+  video.removeAttribute("src");
+  video.load();
+  video.classList.add("d-none");
+  poster.classList.remove("d-none");
+
+  caixa.classList.toggle("indisponivel", !disponivel);
+  botaoPlay.disabled = !disponivel;
+  label.textContent = disponivel ? tipo : `${tipo} (indisponível)`;
+  descricaoElemento.textContent = descricao;
+
+  botaoPlay.onclick = () => {
+    if (!disponivel) return;
+    video.src = src;
+    video.classList.remove("d-none");
+    poster.classList.add("d-none");
+    video.play();
+  };
+}
+
+function updateBrawlerCard(selectId, cardId, nameId, lado) {
   const brawlerName = document.getElementById(selectId).value;
   const cardElement = document.getElementById(cardId);
 
@@ -2542,28 +2416,36 @@ function updateBrawlerCard(selectId, cardId, nameId, descriptionId, attackButton
     const brawler = brawlers[brawlerName];
     cardElement.classList.remove("d-none");
     document.getElementById(nameId).textContent = brawler.name;
-    document.getElementById(descriptionId).innerHTML = brawler.description;
 
-    document.getElementById(attackButtonId).onclick = () => {
-      document.getElementById(videoId).src = brawler.attackVideo;
-      document.getElementById(modalLabelId).textContent = `${brawler.name} - Ataque`;
-    };
-
-    document.getElementById(superButtonId).onclick = () => {
-      document.getElementById(videoId).src = brawler.superVideo;
-      document.getElementById(modalLabelId).textContent = `${brawler.name} - Super`;
-    };
+    configurarCaixaDeVideo("Ataque", lado, brawler.attackVideo, brawlersComVideoDeAtaque.has(brawlerName), brawler.attackDescription);
+    configurarCaixaDeVideo("Super", lado, brawler.superVideo, false, brawler.superDescription);
   } else {
     cardElement.classList.add("d-none");
   }
 }
 
+// Impede escolher o mesmo Brawler nos dois lados da comparação: desabilita,
+// em cada select, a opção que já está escolhida no outro select.
+function atualizarOpcoesBloqueadas() {
+  const select1 = document.getElementById("brawlerSelect1");
+  const select2 = document.getElementById("brawlerSelect2");
+
+  Array.from(select1.options).forEach((opcao) => {
+    opcao.disabled = opcao.value !== "" && opcao.value === select2.value;
+  });
+  Array.from(select2.options).forEach((opcao) => {
+    opcao.disabled = opcao.value !== "" && opcao.value === select1.value;
+  });
+}
+
 document.getElementById("brawlerSelect1").addEventListener("change", () => {
-  updateBrawlerCard("brawlerSelect1", "brawlerCard1", "brawlerName1", "brawlerDescription1", "attackButton1", "superButton1", "brawlerModalLabel1", "brawlerVideo1");
+  atualizarOpcoesBloqueadas();
+  updateBrawlerCard("brawlerSelect1", "brawlerCard1", "brawlerName1", "1");
 });
 
 document.getElementById("brawlerSelect2").addEventListener("change", () => {
-  updateBrawlerCard("brawlerSelect2", "brawlerCard2", "brawlerName2", "brawlerDescription2", "attackButton2", "superButton2", "brawlerModalLabel2", "brawlerVideo2");
+  atualizarOpcoesBloqueadas();
+  updateBrawlerCard("brawlerSelect2", "brawlerCard2", "brawlerName2", "2");
 });
 
 </script>
